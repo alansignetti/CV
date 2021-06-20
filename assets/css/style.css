@@ -489,13 +489,6 @@ section {
   font-size: 18px;
 }
 
-.certificates .title a {
-  color: #343a40;
-}
-
-.certificates .title a:hover {
-  color: #149ddd;
-}
 
 .certificates .description {
   margin-left: 80px;
