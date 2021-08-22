@@ -1,0 +1,213 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.clearfix{
+
+    float: none;
+    clear: both;
+}
+
+
+html{
+    background: url(../img/portfolio-3/background.jpg);
+    
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+#global{
+    width: 65%;
+    margin: 0px auto;
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+#logo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    line-height: 10vh;
+    background-color: teal;
+    color: white;
+    text-align: center;
+    width: 50%;
+    height: 15%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+/* ### Menu ### */
+
+#menu{
+	font-family: Helvetica, Arial;
+	background: #333;
+	width: 100%;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+
+
+#menu ul{
+	line-height: 46px;
+	list-style: none;
+}
+
+#menu ul li{
+	height: 46px;
+	display: inline-block;
+	transition: all 300ms;
+}
+
+#menu ul li:hover{
+    background-color: teal;
+}
+
+#menu a{
+	display: block;
+	color:white;
+	text-decoration: none;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+/* ### End of Menu ### */
+
+
+/* ### Posts ### */
+#posts{
+	width: 60%;
+	float: left;
+	font-family: Helvetica, Arial;
+}
+
+
+.post{
+	padding: 7px;
+}
+
+h2{
+	font-family: Helvetica, Arial;
+	font-size: 30px;
+	color:#333;
+}
+
+.post .date{
+	display: block;
+	color: gray;
+	margin-top:5px;
+}
+
+.post p{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	line-height: 22px;
+	text-align: justify;
+}
+
+
+.button-more{
+    background-color: teal;
+	font-size: 14px;
+	text-align: center;
+	display: block;
+	padding: 15px;
+	color: white;
+	text-decoration: none;
+	margin-top: 10px;
+	width: 15%;
+	margin-bottom: 20px;
+}
+/* ### End of Posts ### */
+
+
+
+
+/* ### Sidebar ### */
+
+#sidebar{
+	font-family: Helvetica, Arial;
+	width: 31%;
+	float: right;
+}
+
+#sidebar h4{
+	margin-top: 50px;
+	margin-bottom:20px;
+	text-align: center;
+	line-height: 10px;
+	color:#333;
+	background: url("../img/portfolio-3/lines.png") repeat-x;
+}
+
+#sidebar h4 span{
+	background: white;
+	padding: 5px;
+}
+
+#sidebar img{
+	width: 100%;
+}
+
+#sidebar p{
+	font-size: 15px;
+	text-align: justify;
+}
+
+/* ### End of Sidebar ### */
+
+
+
+/* ### Login Form ### */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="number"],
+select{
+	padding: 5px;
+	border-radius: 2px;
+	border:1px solid #ccc;
+	width: 80%;
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
+form input[type="submit"]{
+	background: #eee;
+	padding: 10px;
+	border: 1px solid #ccc;
+	color: #333;
+	cursor: pointer;
+}
+
+/* ### End of Login Form ### */
+
+
+
+/* ### Footer ### */
+footer {
+	font-family: Helvetica, Arial;
+	color:white;
+	height: 47px;
+	background: rgba(51, 51, 51, 0.70);
+	margin:0px auto;
+	width: 65%;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 50px;
+	line-height: 47px;
+}
+
+/* ### End of Footer ### */
