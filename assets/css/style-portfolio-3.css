@@ -18,9 +18,9 @@ html{
   height: 100%;
 
   /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-position: center;*/
+  /* background-repeat: no-repeat; */
+  /* background-size: cover;  */
 }
 
 
@@ -211,3 +211,15 @@ footer {
 }
 
 /* ### End of Footer ### */
+
+
+/* ### Slider ### */
+.bx-wrapper,
+.bx-viewport{
+
+	height: 250px !important;
+	
+}
+
+/* ### Slider ### */
+
