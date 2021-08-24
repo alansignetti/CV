@@ -1,0 +1,35 @@
+html{
+    background: url(../img/portfolio-3/background-red.jpg);
+    
+  /* Full height */
+  height: auto;
+  min-height: 100%;
+
+  /* Center and scale the image nicely */
+  /* background-position: center;*/
+  /* background-repeat: no-repeat; */
+  /* background-size: cover;  */
+}
+
+
+
+#logo{
+    background-color: #CA3413;
+    color: white;
+}
+
+#menu{
+
+    background: #333;
+}
+
+#menu ul li:hover{
+    background-color: #CA3413;
+}
+
+
+.button-more{
+    background-color: #CA3413;
+	color: white;
+    
+}

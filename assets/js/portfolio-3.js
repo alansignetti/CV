@@ -54,8 +54,30 @@ $(document).ready(function(){
         $("#posts").append(post);
     });	
      
+    let theme = $("#theme");
+    $("#to-green").click(function(){
+        theme.attr("href","assets/css/green-style-portfolio-3.css");
+    });
+    $("#to-red").click(function(){
+        theme.attr("href","assets/css/red-style-portfolio-3.css");
+    });
+    $("#to-blue").click(function(){
+        theme.attr("href","assets/css/blue-style-portfolio-3.css");
+    });
 
 
+    // Scroll to Top
+    $('.subir').click(function(e){
+        e.preventDefault();
+        // $('html, body').animate({
+        //     scrollTop: 0
+        // },500);
 
+        $('html, body').animate({
+            scrollTop: 0
+          }, 2000); // for all browsers
+          
+        return false;
+    });
 
 });

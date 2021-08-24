@@ -11,20 +11,6 @@
 }
 
 
-html{
-    background: url(../img/portfolio-3/background.jpg);
-    
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  /* background-position: center;*/
-  /* background-repeat: no-repeat; */
-  /* background-size: cover;  */
-}
-
-
-
 #global{
     width: 65%;
     margin: 0px auto;
@@ -39,8 +25,7 @@ html{
     font-size: 28px;
     letter-spacing: 4px;
     line-height: 10vh;
-    background-color: teal;
-    color: white;
+    
     text-align: center;
     width: 50%;
     height: 15%;
@@ -52,7 +37,6 @@ html{
 
 #menu{
 	font-family: Helvetica, Arial;
-	background: #333;
 	width: 100%;
 	text-transform: uppercase;
 	margin-bottom: 20px;
@@ -71,9 +55,6 @@ html{
 	transition: all 300ms;
 }
 
-#menu ul li:hover{
-    background-color: teal;
-}
 
 #menu a{
 	display: block;
@@ -119,12 +100,10 @@ h2{
 
 
 .button-more{
-    background-color: teal;
 	font-size: 14px;
 	text-align: center;
 	display: block;
 	padding: 15px;
-	color: white;
 	text-decoration: none;
 	margin-top: 10px;
 	width: 15%;
@@ -221,5 +200,56 @@ footer {
 	
 }
 
-/* ### Slider ### */
+/* ### End of Slider ### */
+
+
+
+/* ### Theme ### */
+#change-theme{
+	position: fixed;
+	top: 40%;
+	background-color: rgba(51, 51, 51, 0.5);
+	width: 50px;
+	height: 100px;
+
+}
+
+#to-green,
+#to-red,
+#to-blue{
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	border: 1px solid white;
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+}
+
+#to-green{
+	background-color: teal;	
+}
+#to-red{
+	background-color: #CA3413;
+	
+}
+#to-blue{
+	background-color: #1F87C4;
+	
+}
+
+/* ### End of Theme ### */
+
+
+/* ### Scroll Top ### */
+
+.top{
+	color: white;
+	text-decoration: none;
+	display: block;
+	float: right;
+}
+/* ### End of Scroll Top ### */
 

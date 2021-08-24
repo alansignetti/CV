@@ -1,0 +1,35 @@
+html{
+    background: url(../img/portfolio-3/background-green.jpg);
+    
+  /* Full height */
+  height: auto;
+  min-height: 100%;
+
+  /* Center and scale the image nicely */
+  /* background-position: center;*/
+  /* background-repeat: no-repeat; */
+  /* background-size: cover;  */
+}
+
+
+
+#logo{
+    background-color: teal;
+    color: white;
+}
+
+#menu{
+
+    background: #333;
+}
+
+#menu ul li:hover{
+    background-color: teal;
+}
+
+
+.button-more{
+    background-color: teal;
+	color: white;
+    
+}
