@@ -67,17 +67,37 @@ $(document).ready(function(){
 
 
     // Scroll to Top
-    $('.subir').click(function(e){
-        e.preventDefault();
-        // $('html, body').animate({
-        //     scrollTop: 0
-        // },500);
+	$('.top').click(function(e){
+		e.preventDefault();
 
-        $('html, body').animate({
-            scrollTop: 0
-          }, 2000); // for all browsers
-          
-        return false;
-    });
+		$('html, body').animate({
+			scrollTop: 0
+		}, 500);
 
+		return false;
+	});
+
+
+        // fake login (localstorage)
+        $("#login form").submit(function(){
+            let form_name= $("#form_name").val();
+            localStorage.setItem("form_name",form_name);
+
+        });
+
+        let form_name= localStorage.getItem("form_name");
+
+        if (form_name != null && form_name != "undefined" ) {      
+            let about_p = $("#about p");      
+            about_p.html("<br><strong>Welcome "+ form_name+"</strong>");
+            // about_p.append("<a href='#' id='logout'> Logout </a>")
+            about_p.append("<a href='#' id='logout' class='btn btn-default btn-sm'><span  class='glyphicon glyphicon-log-out'></span> Log out</a>");
+            
+
+          $("#login").hide();
+          $("#logout").click(function(){
+            localStorage.clear();
+            location.reload(); 
+          });
+        }
 });
