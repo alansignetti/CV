@@ -11,6 +11,17 @@
 }
 
 
+#box{
+	width: 60%;
+	float: left;
+	max-height: max-content;
+	margin-top: 10px;
+}
+
+#accordion{
+	margin-top: 20px;
+}
+
 #global{
     width: 65%;
     margin: 0px auto;
@@ -106,7 +117,7 @@ h2{
 	padding: 15px;
 	text-decoration: none;
 	margin-top: 10px;
-	width: 15%;
+	width: max-content;
 	margin-bottom: 20px;
 }
 /* ### End of Posts ### */
