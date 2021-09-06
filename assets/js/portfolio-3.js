@@ -1,6 +1,13 @@
 $(document).ready(function(){
  
-    
+    function showClock() {
+        let clock = moment().format('hh:mm:ss');
+              
+        return $('#clock').html(clock);
+      }
+    setInterval(function(){
+        showClock();
+    },1000);
     // if index about-portfolio-3 = -1 don't show
     if (window.location.href.indexOf('about-portfolio-3')===-1){
         // Slider
@@ -10,10 +17,12 @@ $(document).ready(function(){
             slideWidth: 1200
             ,responsive: true
           });
+
     };
  
     // Posts
     if (window.location.href.indexOf('about-portfolio-3')===-1){
+        
         const today = moment().subtract(1, 'hour');
         const today1 = moment().subtract(2, 'hour');
         const today2 = moment().subtract(40, 'hour');
