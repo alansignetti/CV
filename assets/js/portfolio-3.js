@@ -7,7 +7,7 @@ $(document).ready(function(){
       }
     setInterval(function(){
         showClock();
-    },1000);
+    },100);
     // if index about-portfolio-3 = -1 don't show
     if (window.location.href.indexOf('about-portfolio-3')===-1){
         // Slider
