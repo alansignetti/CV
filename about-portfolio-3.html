@@ -35,7 +35,12 @@
     <script src="assets/js/jquery-ui/jquery-ui.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+  
+  
+  <!-- Responsive -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     
@@ -56,11 +61,14 @@
             <div id="logo"><h1>JQuery Project</h1></div>
             <div class="clearfix"></div>
 
-            <nav id="menu">
+            <nav id="menu" class="menu">
                 <ul >
                     <li><a href="portfolio-3.html">HOME</a></li>
                     <li><a href="about-portfolio-3.html">ABOUT</a></li>
                     <li><a href="contact-portfolio-3.html">CONTACT</a></li>
+                    <li><a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                      </a></li>
                 </ul>
             </nav>
         </header>
