@@ -355,3 +355,55 @@ footer {
 	
 }
 
+@media screen and (max-width:380px){
+	#logo h1{
+		font-size: 14px;
+	}
+	#clock{
+		
+		font-size: 15px;
+	}
+	#box h2{
+		font-size: 15px;
+	}
+	#contact_form {
+		width: 100%;
+		
+	}
+	input{
+		width: 80px;
+	}
+	#about h4{
+		font-size: 8px;
+	}
+
+	footer{
+		width: 100%;
+		height: max-content;
+	}
+	b, strong {
+		font-weight: 300;
+		font-size: 9px;
+	}
+	label{
+		font-size: 70%;
+	}
+	#login{
+		width: 120%;
+	}
+	#global{
+		width:90%
+	}
+	.bx-wrapper, .bx-viewport {
+		height: 180px !important;
+		width: 95%;
+	}
+	.button-more {
+		font-size: 10px;
+	}
+
+	#change-theme {
+		width: 30px;
+	}
+}
+
