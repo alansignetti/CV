@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JQuery Project</title>
+    <title>About</title>
     
     <!-- Portfolio-3 CSS styles  -->
     <link rel="stylesheet" href="assets/css/style-portfolio-3.css">
@@ -22,12 +22,24 @@
     
     <!-- JS Scripts Portfolio-3 -->
     <script src="assets/js/portfolio-3.js"></script>
-    
-    <!-- Moment (date) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/en-au.min.js" integrity="sha512-hMJ3fu4/JRqp264nAe+n08sdjwps1EET1xDaJHb2yoA8NvwkpEzYa+iCu1uhIi2kabu5YiAf3q5sMHyWkJZ97w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+     
+    <!-- Moment (date) Clock -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/en-au.min.js" integrity="sha512-hMJ3fu4/JRqp264nAe+n08sdjwps1EET1xDaJHb2yoA8NvwkpEzYa+iCu1uhIi2kabu5YiAf3q5sMHyWkJZ97w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
+   <!-- JQuery UI  -->
+   <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.structure.min.css">
+   <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.theme.min.css">
+   <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css">
+   <script src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
+
+ <!-- Form Validation -->
+
+ <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 </head>
 <body>
     
@@ -42,6 +54,7 @@
     <!-- Global Section -->
     <section id="global">
         <!-- Header -->
+        
         <div id="clock"></div>
         <header>
             <div id="logo"><h1>JQuery Project</h1></div>
@@ -51,27 +64,37 @@
                 <ul >
                     <li><a href="portfolio-3.html">HOME</a></li>
                     <li><a href="about-portfolio-3.html">ABOUT</a></li>
-                    <li><a href="contact-portfolio-3.html">CONTACT</a></li>
+                    <l-i><a href="#">CONTACT</a></l-i>
                 </ul>
             </nav>
         </header>
         <!-- End of Header -->
 
-        <!-- Slider -->
-        <div id="slider">            
-            <div class="bxslider">
-                <div><img src="assets/img/portfolio-3/background-green.jpg" title="background-green"></div>
-                <div><img src="assets/img/portfolio-3/background-red.jpg" title="background-red"></div>
-                <div><img src="assets/img/portfolio-3/background-blue.jpg" title="background-blue"></div>
-              </div>
-        </div>
-        <!-- End of Slider -->
+      
+        
 
         <!-- Content -->
         <section id="content">
-            <div id="posts">
-                <!-- posts uploaded by JSON -->
+            <div id="box">
+                <!-- Contact Form -->
+                <h2>Contact Page</h2>
+                <form action="" method="POST" id="contact_form">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" required>
+
+                    <label for="surname">Last Name</label>
+                    <input type="text" name="surname" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required>
+
+                    <label for="age">Age</label>
+                    <input type="text" name="age">
+
+                    <input type="submit" value="Submit">
+                </form>
             </div>
+
             <aside id="sidebar">
                 <div id="about">
                     <h4><span>Who am I?</span></h4>

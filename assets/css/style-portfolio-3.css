@@ -172,6 +172,8 @@ form input[type="text"],
 form input[type="password"],
 form input[type="email"],
 form input[type="number"],
+form input[type="date"],
+form input[type="submit"],
 select{
 	padding: 5px;
 	border-radius: 2px;
@@ -271,3 +273,31 @@ footer {
 }
 /* ### End of Scroll Top ### */
 
+
+/* ### Contact Form ### */
+
+#contact_form{
+	width: 50%;
+	margin-top: 10px;
+}
+
+#contact_form label{
+	width: 100%;
+	display: block;
+	margin-top: 5px;
+}
+
+#contact_form label.error {
+    color: red;
+    font-size: 1rem;
+    display: block;
+    margin-top: 5px;
+}
+
+#contact_form input.error{
+    border: 1px dashed red;
+    font-weight: 300;
+    color: red;
+}
+
+/* ### End of Contact Form ### */

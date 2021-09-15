@@ -8,8 +8,10 @@ $(document).ready(function(){
     setInterval(function(){
         showClock();
     },100);
-    // if index about-portfolio-3 = -1 don't show
-    if (window.location.href.indexOf('about-portfolio-3')===-1){
+    
+    if  (window.location.pathname == '/portfolio-3.html')
+    
+    {
         // Slider
         $('.bxslider').bxSlider({
             mode: 'fade',
@@ -18,10 +20,13 @@ $(document).ready(function(){
             ,responsive: true
           });
 
+
+          console.log(window.location.pathname);
+
     };
  
     // Posts
-    if (window.location.href.indexOf('about-portfolio-3')===-1){
+    if (window.location.pathname == '/portfolio-3.html'){
         
         const today = moment().subtract(1, 'hour');
         const today1 = moment().subtract(2, 'hour');
@@ -113,10 +118,50 @@ $(document).ready(function(){
             localStorage.clear();
             location.reload(); 
           });
-        }
-
-        if (window.location.href.indexOf('about-portfolio-3')!=-1){
-            $("#accordion").accordion();
-            console.log(window.location.href.indexOf('about-portfolio-3')); 
         };
+
+        if (window.location.pathname == '/about-portfolio-3.html'){
+            $("#accordion").accordion();
+            
+        };
+
+
+
+        if (window.location.pathname == '/contact-portfolio-3.html'){
+            $("#contact_form").validate({
+                rules: {
+                  name : {
+                    required: true,
+                    minlength: 3
+                  },
+                  surname: {
+                    required: true,
+                    minlength: 4
+                  },
+                  email : {
+                    required: true
+                  },
+                  age: {
+                    required: true,
+                    number: true,
+                
+                  } 
+                },
+                messages : {
+                    name: {
+                      minlength: "Name should be at least 3 characters",
+                      required: "Please enter your name"
+                    },
+                    surname: {
+                        required: "Please enter your last name"
+                    },
+                    email: {
+                      email: "The email should be in the format: abc@domain.tld"
+                    }
+                    
+                }
+              });
+        };
+
+        
 });
