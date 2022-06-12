@@ -1,6 +1,81 @@
 
+  
 (function() {
   "use strict";
+
+  tippy('#devicon-html', {
+    content: "HTML5",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-css', {
+    content: "CSS3",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-angular', {
+    content: "Angular",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-javascript', {
+    content: "Javascript",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-typescript', {
+    content: "Typescript",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-jquery', {
+    content: "JQuery",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-git', {
+    content: "Git",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-bootstrap', {
+    content: "Bootstrap",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-npm', {
+    content: "npm",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-node', {
+    content: "NodeJS",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-mssql', {
+    content: "Microsoft SQL Server",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  tippy('#devicon-mysql', {
+    content: "MySQL",
+    arrow: true,
+    followCursor: true,
+  }
+  );
+  
 
   /**
    * Easy selector helper function

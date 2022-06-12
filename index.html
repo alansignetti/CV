@@ -1,365 +1,634 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <title>Alan Signetti</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
     <!-- Favicons -->
 
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.png" rel="icon" />
+
+    <!-- Skills devicon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
 
-
-</head>
-
-<body>
-
+  <body>
     <!-- ======= Mobile nav toggle button ======= -->
     <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
     <!-- ======= Header ======= -->
     <header id="header">
-        <div class="d-flex flex-column">
-
-            <div class="profile">
-                <img src="assets/img/profile-img.jpeg" alt="" class="img-fluid rounded-circle">
-                <h1 class="text-light"><a href="index.html">Alan Signetti Demand</a></h1>
-                <div class="social-links mt-3 text-center">
-                    <a href="https://github.com/alansignetti" class="github"><i class="bx bxl-github"></i></a>
-                    <a href="https://www.linkedin.com/in/alan-signetti-demand/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                </div>
-            </div>
-
-            <nav id="navbar" class="nav-menu navbar">
-                <ul>
-                    <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-                    <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-                    <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-                    <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-                    <li><a href="#certificates" class="nav-link scrollto"><i class="bx bx-certification"></i> <span>Certificates</span></a></li>
-
-                </ul>
-            </nav><!-- .nav-menu -->
+      <div class="d-flex flex-column">
+        <div class="profile">
+          <img
+            src="assets/img/profile-img.jpeg"
+            alt=""
+            class="img-fluid rounded-circle"
+          />
+          <h1 class="text-light">
+            <a href="index.html">Alan Signetti Demand</a>
+          </h1>
+          <div class="social-links mt-3 text-center">
+            <a href="https://github.com/alansignetti" class="github"
+              ><i class="bx bxl-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/alan-signetti-demand/"
+              class="linkedin"
+              ><i class="bx bxl-linkedin"></i
+            ></a>
+          </div>
         </div>
-    </header><!-- End Header -->
+
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <li>
+              <a href="#hero" class="nav-link scrollto active"
+                ><i class="bx bx-home"></i> <span>Home</span></a
+              >
+            </li>
+            <li>
+              <a href="#about" class="nav-link scrollto"
+                ><i class="bx bx-user"></i> <span>About</span></a
+              >
+            </li>
+            <li>
+              <a href="#resume" class="nav-link scrollto"
+                ><i class="bx bx-file-blank"></i> <span>Resume</span></a
+              >
+            </li>
+            <li>
+              <a href="#portfolio" class="nav-link scrollto"
+                ><i class="bx bx-book-content"></i> <span>Portfolio</span></a
+              >
+            </li>
+            <li>
+              <a href="#certificates" class="nav-link scrollto"
+                ><i class="bx bx-certification"></i>
+                <span>Certificates</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </div>
+    </header>
+    <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-        <div class="hero-container" data-aos="fade-in">
-            <h1>Alan Signetti Demand</h1>
-            <p>I'm <span class="typed" data-typed-items="a Developer, a Geek"></span></p>
-        </div>
-    </section><!-- End Hero -->
+    <section
+      id="hero"
+      class="d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="hero-container" data-aos="fade-in">
+        <h1>Alan Signetti Demand</h1>
+        <p>
+          I'm <span class="typed" data-typed-items="a Developer, a Geek"></span>
+        </p>
+      </div>
+    </section>
+    <!-- End Hero -->
 
     <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-title">
+            <h2>About</h2>
+            <p>
+              I lived for 10 years in Spain. I currently live in Argentina.
+              Studying Bachelor of Systems UNLa. I love everything related to
+              computers and technology in general. I am interested in Frontend
+              Development.
+            </p>
+          </div>
 
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about">
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>About</h2>
-                    <p>I lived for 10 years in Spain. I currently live in Argentina.
-                        Studying Bachelor of Systems UNLa. I love everything
-                        related to computers and technology in general. I am
-                        interested in Frontend Development.
-                    </p>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <img src="assets/img/profile-img.jpeg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                        <h3>Frontend Developer</h3>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>12 Feb 1999</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.alansignetti.com</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+54 9 11 22498436</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Buenos Aires, Argentina</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>23</span></li>
-                                    <!-- <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li> -->
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>alansignetti@gmail.com</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Remote:</strong> <span>Available</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+              <img src="assets/img/profile-img.jpeg" class="img-fluid" alt="" />
             </div>
-        </section><!-- End About Section -->
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+              <h3>Frontend Developer</h3>
 
-
-
-        <!-- ======= Skills Section ======= -->
-        <section id="skills" class="skills section-bg">
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>Skills</h2>
-                    <p>Besides studying at the university,
-                        I am constantly trying to learn new technologies related to web development and improve the ones I already know.</p>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Birthday:</strong> <span>12 Feb 1999</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Website:</strong>
+                      <span>www.alansignetti.com</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Phone:</strong> <span>+54 9 11 22498436</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>City:</strong>
+                      <span>Buenos Aires, Argentina</span>
+                    </li>
+                  </ul>
                 </div>
-
-                <div class="row skills-content">
-
-                    <div class="col-lg-6" data-aos="fade-up">
-
-                        <div class="progress">
-                            <span class="skill">HTML <i class="val">90%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">CSS <i class="val">80%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">JavaScript <i class="val">80%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-                        <div class="progress">
-                            <span class="skill">Spring Boot <i class="val">60%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">SQL <i class="val">90%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
+                <div class="col-lg-6">
+                  <ul>
+                    <li>
+                      <i class="bi bi-chevron-right"></i> <strong>Age:</strong>
+                      <span>23</span>
+                    </li>
+                    <!-- <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li> -->
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Email:</strong>
+                      <span>alansignetti@gmail.com</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-chevron-right"></i>
+                      <strong>Remote:</strong> <span>Available</span>
+                    </li>
+                  </ul>
                 </div>
-
+              </div>
             </div>
-        </section><!-- End Skills Section -->
+          </div>
+        </div>
+      </section>
+      <!-- End About Section -->
 
-        <!-- ======= Resume Section ======= -->
-        <section id="resume" class="resume">
-            <div class="container">
+      <!-- ======= Skills Section ======= -->
+      <section id="skills" class="skills section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Skills</h2>
+            <p>
+              Besides studying at the university, I am constantly trying to
+              learn new technologies related to web development and improve the
+              ones I already know.
+            </p>
+          </div>
 
-                <div class="section-title">
-                    <h2>Resume</h2>
-                    <p>I have been working professionally as a software developer for almost 2 years.</p>
-                    <p>I am responsible, committed, empathetic and I know how to work as a team</p>
-                </div>
+          <div class="skills-content">
+            <div
+              class="col-lg-12 col-md-12 col-sm-10 col-xs-12 skillsGrid"
+              data-aos="fade-up"
+            >
+              <img
+                id="devicon-html"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg"
+                alt="The logo icon for HTML 5"
+              />
+              <img
+                id="devicon-css"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg"
+                alt="The logo icon for Javascript"
+              />
+              <img
+                id="devicon-javascript"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="The logo icon for Angular"
+              />
+              <img
+                id="devicon-typescript"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                alt="The logo icon for Typescript"
+              />
+              <img
+                id="devicon-angular"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+                alt="The logo icon for Angular"
+              />
+              <img
+                id="devicon-jquery"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original-wordmark.svg"
+                alt="The logo icon for JQuery"
+              />
 
-                <div class="row">
-                    <div class="col-lg-6" data-aos="fade-up">
-                        <h3 class="resume-title">Education</h3>
-                        <div class="resume-item">
-                            <h4>Bachelor of Systems</h4>
-                            <h5>2018 - Present</h5>
-                            <p><em>Universidad Nacional de Lanús, Argentina </em></p>
-                            <p>I am studying third year. Over the years I have seen the following technologies: </p>
-                            <li>Object Oriented Programming (Java / Spring) </li>
-                            <li>SQL Database Development</li>
-                            <li>Software Engineering</li>
-                            <li>Multiple levels of Math</li>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="resume-title">Professional Experience</h3>
-                        <div class="resume-item">
-                            <h4>Full Stack Developer</h4>
-                            <h5>Aug 2021 - Present</h5>
-                            <p><em>Cartasur Cards SA, Argentina</em></p>
-                            <ul>
-                                <li>My role is to develop new processes and web tools or improve the ones that already exist.
-                                    <p>Technologies: HTML & CSS, JQuery, JavaScript, SQL Server,.Net</p>
-                                </li>
-                            </ul>
-                        </div>
+              <img
+                id="devicon-git"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg"
+                alt="The logo icon for GitHub"
+              />
 
-                        <div class="resume-item">
-                            <h4>Deloitte Center of Excellence Consultant
-                            </h4>
-                            <h5>Jan 2021 - Aug 2021 (8 months)</h5>
-                            <p><em>Deloitte, Argentina </em></p>
-                            <ul>
-                                <li>Develop, stabilize, debugging and support in Big data (Cloudera) platform for Deloitte Data Risks solutions</li>
-                                <li>Data ingestion, processing and reports dashboard operation of DataCheker solution</li>
-                            </ul>
-                        </div>
-
-                        <div class="resume-item">
-                            <h4>Full Stack Developer</h4>
-                            <h5>Feb 2020 - Jan 2021 (1 year)</h5>
-                            <p><em>Soluciones S.A, Argentina</em></p>
-                            <ul>
-                                <li>Website development for an important financial institution</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
+              <img
+                id="devicon-bootstrap"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg"
+                alt="The logo icon for Bootstrap"
+              />
+              <img
+                id="devicon-npm"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
+                alt="The logo icon for NPM"
+              />
+              <img
+                id="devicon-node"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"
+                alt="The logo icon for NodeJS"
+              />
+              <img
+                id="devicon-mysql"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
+                alt="The logo icon for MySQL"
+              />
+              <img
+                id="devicon-mssql"
+                class="devicon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg"
+                alt="The logo icon for MSSQL"
+              />
             </div>
-        </section><!-- End Resume Section -->
+          </div>
+        </div>
+      </section>
+      <!-- End Skills Section -->
 
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="resume">
+        <div class="container">
+          <div class="section-title">
+            <h2>Resume</h2>
+            <p>
+              I have been working professionally as a software developer since
+              2020.
+            </p>
+            <p>
+              I am responsible, committed, empathetic and I know how to work as
+              a team.
+            </p>
+          </div>
 
-
-        <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio section-bg">
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>Portfolio</h2>
-                </div>
-
-
-                <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-                    
-					<div class="col-lg-4 col-md-6 portfolio-item">
-                        <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/AngularProject.jpg" class="img-fluid" alt="Angular Project">
-                            <div class="portfolio-links">
-                                <a href="https://alansignetti.github.io/AngularProject" title="Angular Project"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="col-lg-4 col-md-6 portfolio-item">
-                        <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="JQuery Project">
-                            <div class="portfolio-links">
-                                <a href="portfolio-3.html" title="JQuery Project"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-					<div class="col-lg-4 col-md-6 portfolio-item">
-                        <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="Slider">
-                            <div class="portfolio-links">
-                                <a href="https://alansignetti.github.io/Monks/" title="Slider"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="col-lg-4 col-md-6 portfolio-item">
-                        <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/portfolio-4.JPG" class="img-fluid" alt="Responsive Project">
-                            <div class="portfolio-links">
-                                <a href="responsive-project/index.html" title="Responsive Project"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="col-lg-4 col-md-6 portfolio-item">
-                        <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="Simple Web">
-                            <div class="portfolio-links">
-                                <a href="portfolio-1.html" title="Simple Web"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="col-lg-4 col-md-6 portfolio-item">
-                        <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/Vue-test.jpg" class="img-fluid" alt="Vue Project">
-                            <div class="portfolio-links">
-                                <a href="https://alansignetti.github.io/blooz" title="Vue Project"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-					
-					
-					
-                </div>
-
-               
-
-
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item">
+                <h4>Bachelor of Systems</h4>
+                <h5>2018 - Present</h5>
+                <p><em>Universidad Nacional de Lanús, Argentina </em></p>
+                <p>Over the years I have seen the following technologies:</p>
+                <li>Object Oriented Programming (Java / Spring / Angular)</li>
+                <li>SQL Database Development</li>
+                <li>Software Engineering</li>
+                <li>Multiple levels of Math</li>
+              </div>
+              <div class="resume-item">
+                <h4>Certificates</h4>
+                <h5>
+                  <a href="#certificates"
+                    ><i class="bx bx-certification"></i>
+                    <span>Click here!</span></a
+                  >
+                </h5>
+              </div>
             </div>
-        </section><!-- End Portfolio Section -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Professional Experience</h3>
 
-        <!-- ======= Certificates Section ======= -->
-        <section id="certificates" class="certificates">
-            <div class="container">
+              <div class="resume-item">
+                <h4>Frontend Developer</h4>
+                <h5>May 2022 - Present</h5>
+                <p>
+                  <em
+                    ><a href="https://expand.com.uy/" target="_blank"
+                      >Expand, Uruguay</a
+                    ></em
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Technologies: Angular, Typescript , HTML5 & CSS3, Git,
+                    Docker
+                  </li>
+                  <li>
+                    Web frontend development and maintenance of the omnichannel
+                    product and the administration panel
+                  </li>
+                </ul>
+              </div>
 
-                <div class="section-title">
-                    <h2>Certificates</h2>
-                </div>
+              <div class="resume-item">
+                <h4>Full Stack Developer</h4>
+                <h5>Aug 2021 - May 2022 (10 months)</h5>
+                <p>
+                  <em
+                    ><a href="https://www.cartasur.com.ar/" target="_blank"
+                      >Cartasur Cards SA, Argentina</a
+                    ></em
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Technologies: HTML5 & CSS3, JQuery, JavaScript, SQL
+                    Server,.Net, SVN
+                  </li>
+                  <li>
+                    Develop and maintenance of web and desktop applications.
+                  </li>
+                </ul>
+              </div>
 
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                        <div class="icon"><i class="bx bx-certification"></i></div>
-                        <h4 class="title">Angular Master</h4>
-                        <img src="assets/img/certificates/certificate-angular.png" class="img-fluid" alt="Angular">
-                    </div>
-					
-                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                        <div class="icon"><i class="bx bx-certification"></i></div>
-                        <h4 class="title">Toefl ITP</h4>
-                        <img src="assets/img/certificates/certificate-1.png" class="img-fluid" alt="toefl-itp">
-                    </div>
-					
-                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon"><i class="bx bx-certification"></i></div>
-                        <h4 class="title">SQL Server</h4><br>
-                        <img src="assets/img/certificates/certificate-2.png" class="img-fluid" alt="sql-server">
-                    </div>
-					
-                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon"><i class="bx bx-certification"></i></div>
-                        <h4 class="title">Responsive Web Design</h4><br>
-                        <img src="assets/img/certificates/certificate-3.png" class="img-fluid" alt="Responsive-web-design">
-                    </div>
+              <div class="resume-item">
+                <h4>Deloitte Center of Excellence Consultant</h4>
+                <h5>Jan 2021 - Aug 2021 (8 months)</h5>
+                <p>
+                  <em
+                    ><a
+                      href="https://www2.deloitte.com/ar/es.html"
+                      target="_blank"
+                      >Deloitte, Argentina</a
+                    >
+                  </em>
+                </p>
+                <ul>
+                  <li>
+                    Develop, stabilize, debugging and support in Big data
+                    (Cloudera) platform for Deloitte Data Risks solutions
+                  </li>
+                  <li>
+                    Data ingestion, processing and reports dashboard operation
+                    of DataCheker solution
+                  </li>
+                </ul>
+              </div>
 
-                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon"><i class="bx bx-certification"></i></div>
-                        <h4 class="title">JavaScript to the Details</h4><br>
-                        <img src="assets/img/certificates/certificate-4.png" class="img-fluid" alt="Responsive-web-design">
-                    </div>
-
-                </div>
-
+              <div class="resume-item">
+                <h4>Full Stack Developer</h4>
+                <h5>Feb 2020 - Jan 2021 (1 year)</h5>
+                <p>
+                  <em
+                    ><a
+                      href="https://engage-sc.com.ar/soluciones/"
+                      target="_blank"
+                      >Soluciones S.A, Argentina</a
+                    ></em
+                  >
+                </p>
+                <ul>
+                  <li>
+                    Technologies: HTML & CSS, JavaScript, SQL Server, Engage CRM
+                  </li>
+                  <li>
+                    Website development for an important financial institution
+                  </li>
+                </ul>
+              </div>
             </div>
-        </section><!-- End Certificates Section -->
+          </div>
+        </div>
+      </section>
+      <!-- End Resume Section -->
 
-    </main><!-- End #main -->
+      <!-- ======= Portfolio Section ======= -->
+      <section id="portfolio" class="portfolio section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Portfolio</h2>
+          </div>
+
+          <div
+            class="row portfolio-container"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <!-- ======= McDonalds ======= -->
+            <div
+              class="col-lg-4 col-md-6 portfolio-item"
+              style="cursor: pointer"
+              onclick="window.open('https://alansignetti.github.io/McDonalds-Clone')"
+            >
+              <div class="portfolio-wrap">
+                <img
+                  src="assets/img/portfolio/McDonalds1.jpg"
+                  class="img-fluid img-height"
+                  alt="McDonalds App"
+                />
+              </div>
+            </div>
+            <!-- ======= McDonalds ======= -->
+
+            <!-- ======= Angular ======= -->
+            <div
+              class="col-lg-4 col-md-6 portfolio-item"
+              style="cursor: pointer"
+              onclick="window.open('https://alansignetti.github.io/AngularProject')"
+            >
+              <div class="portfolio-wrap">
+                <img
+                  src="assets/img/portfolio/AngularProject.jpg"
+                  class="img-fluid img-height"
+                  alt="McDonalds App Clone"
+                />
+              </div>
+            </div>
+            <!-- ======= Angular ======= -->
+
+            <!-- ======= JQuery ======= -->
+            <div
+              class="col-lg-4 col-md-6 portfolio-item"
+              style="cursor: pointer"
+              onclick="window.open('portfolio-3.html')"
+            >
+              <div class="portfolio-wrap">
+                <img
+                  src="assets/img/portfolio/portfolio-3.jpg"
+                  class="img-fluid img-height"
+                  alt="JQuery Project"
+                />
+              </div>
+            </div>
+            <!-- ======= JQuery ======= -->
+
+            <!-- ======= MediaMonks ======= -->
+            <div
+              class="col-lg-4 col-md-6 portfolio-item"
+              style="cursor: pointer"
+              onclick="window.open('https://alansignetti.github.io/Monks')"
+            >
+              <div class="portfolio-wrap">
+                <img
+                  src="assets/img/portfolio/portfolio-2.jpg"
+                  class="img-fluid img-height"
+                  alt="Slider"
+                />
+              </div>
+            </div>
+            <!-- ======= MediaMonks ======= -->
+
+            <!-- ======= Responsive ======= -->
+            <div
+              class="col-lg-4 col-md-6 portfolio-item"
+              style="cursor: pointer"
+              onclick="window.open('responsive-project/index.html')"
+            >
+              <div class="portfolio-wrap">
+                <img
+                  src="assets/img/portfolio/portfolio-4.JPG"
+                  class="img-fluid img-height"
+                  alt="Responsive Project"
+                />
+              </div>
+            </div>
+            <!-- ======= Responsive ======= -->
+
+            <!-- ======= SimpleWeb ======= -->
+            <div
+              class="col-lg-4 col-md-6 portfolio-item"
+              style="cursor: pointer"
+              onclick="window.open('portfolio-1.html')"
+            >
+              <div class="portfolio-wrap">
+                <img
+                  src="assets/img/portfolio/portfolio-1.jpg"
+                  class="img-fluid img-height"
+                  alt="Simple Web"
+                />
+              </div>
+            </div>
+            <!-- ======= SimpleWeb ======= -->
+
+            <!-- ======= Blooz ======= -->
+            <div
+              class="col-lg-4 col-md-6 portfolio-item"
+              style="cursor: pointer"
+              onclick="window.open('https://alansignetti.github.io/blooz')"
+            >
+              <div class="portfolio-wrap">
+                <img
+                  src="assets/img/portfolio/Vue-test.jpg"
+                  class="img-fluid img-height"
+                  alt="Vue Project"
+                />
+              </div>
+            </div>
+            <!-- ======= Blooz ======= -->
+          </div>
+        </div>
+      </section>
+      <!-- End Portfolio Section -->
+
+      <!-- ======= Certificates Section ======= -->
+      <section id="certificates" class="certificates">
+        <div class="container">
+          <div class="section-title">
+            <h2>Certificates</h2>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+              <div class="icon"><i class="bx bx-certification"></i></div>
+              <h4 class="title">Angular Master</h4>
+              <img
+                src="assets/img/certificates/certificate-angular.png"
+                class="img-fluid img-height"
+                alt="Angular"
+              />
+            </div>
+
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+              <div class="icon"><i class="bx bx-certification"></i></div>
+              <h4 class="title">Toefl ITP</h4>
+              <img
+                src="assets/img/certificates/certificate-1.png"
+                class="img-fluid img-height"
+                alt="toefl-itp"
+              />
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 icon-box"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="icon"><i class="bx bx-certification"></i></div>
+              <h4 class="title">SQL Server</h4>
+              <br />
+              <img
+                src="assets/img/certificates/certificate-2.png"
+                class="img-fluid img-height"
+                alt="sql-server"
+              />
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 icon-box"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="icon"><i class="bx bx-certification"></i></div>
+              <h4 class="title">Responsive Web Design</h4>
+              <br />
+              <img
+                src="assets/img/certificates/certificate-3.png"
+                class="img-fluid img-height"
+                alt="Responsive-web-design"
+              />
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 icon-box"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="icon"><i class="bx bx-certification"></i></div>
+              <h4 class="title">JavaScript to the Details</h4>
+              <br />
+              <img
+                src="assets/img/certificates/certificate-4.png"
+                class="img-fluid img-height"
+                alt="Responsive-web-design"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Certificates Section -->
+    </main>
+    <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <!-- <footer id="footer">
@@ -367,7 +636,11 @@
   </footer> -->
     <!-- End  Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
@@ -382,7 +655,5 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-
-</body>
-
+  </body>
 </html>
