@@ -69,6 +69,12 @@
     followCursor: true,
   }
   );
+  tippy('#devicon-mongodb', {
+    content: "MongoDB",
+    arrow: true,
+    followCursor: true,
+  }
+  );
   tippy('#devicon-mysql', {
     content: "MySQL",
     arrow: true,
