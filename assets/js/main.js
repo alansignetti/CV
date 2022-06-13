@@ -81,8 +81,51 @@
     followCursor: true,
   }
   );
-  
 
+  // portfolio
+  tippy('#portfolio-mcdonalds', {
+    content: "McDonalds Clone Project",
+    arrow: false,
+    placement: 'top-start',
+  }
+  );
+  tippy('#portfolio-angular', {
+    content: "Angular Project",
+     arrow: false,
+    placement: 'top-start',
+  }
+  );
+  tippy('#portfolio-1', {
+    content: "Simple Web",
+     arrow: false,
+    placement: 'top-start',
+  }
+  );
+  tippy('#portfolio-3', {
+    content: "JQuery UI Project",
+     arrow: false,
+    placement: 'top-start',
+  }
+  );
+  tippy('#portfolio-blooz', {
+    content: "Vue Project",
+     arrow: false,
+    placement: 'top-start',
+  }
+  );
+  tippy('#portfolio-monks', {
+    content: "Slider Project",
+     arrow: false,
+    placement: 'top-start',
+  }
+  );
+  tippy('#portfolio-responsive', {
+    content: "Responsive Project",
+     arrow: false,
+    placement: 'top-start',
+  }
+  );
+  
   /**
    * Easy selector helper function
    */
