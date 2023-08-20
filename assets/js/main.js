@@ -1,5 +1,12 @@
 (function () {
-  "use strict";
+  window.onload = () => {
+    const age = getAge();
+    const exp = getExperience();
+    document.getElementById("age").textContent = age;
+    console.log(exp);
+  };
+
+  ("use strict");
 
   tippy("#devicon-html", {
     content: "HTML5",
@@ -118,8 +125,20 @@
     return (document.getElementById("age").innerHTML = age);
   };
 
-  // resume age
-  onload = getAge();
+  const getExperience = () => {
+    const referenceDate = new Date("2020-02-01"); // reference date: 02/2020
+
+    const currentDate = new Date(); // current date
+
+    const yearsDiff = currentDate.getFullYear() - referenceDate.getFullYear();
+    const monthsDiff =
+      currentDate.getMonth() - referenceDate.getMonth() + yearsDiff * 12;
+
+    const totalDiff = monthsDiff / 12;
+    const experienceSpan = document.getElementById("experience");
+    console.log(experienceSpan);
+    experienceSpan.innerHTML = `(${totalDiff} years)`;
+  };
 
   /**
    * Easy selector helper function
