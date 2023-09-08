@@ -134,10 +134,10 @@
     const monthsDiff =
       currentDate.getMonth() - referenceDate.getMonth() + yearsDiff * 12;
 
-    const totalDiff = monthsDiff / 12;
+    const totalDiff = Math.trunc(monthsDiff / 12);
     const experienceSpan = document.getElementById("experience");
-    console.log(experienceSpan);
-    experienceSpan.innerHTML = `(${totalDiff} years)`;
+
+    experienceSpan.innerHTML = `(+${totalDiff} years)`;
   };
 
   /**
