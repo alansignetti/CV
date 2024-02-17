@@ -81,6 +81,9 @@ h6 {
   width: 120px;
   border: 8px solid #2c2f3f;
 }
+.profile-img {
+  height: 110px;
+}
 
 #header .profile h1 {
   font-size: 24px;
@@ -570,13 +573,13 @@ section {
   line-height: 0;
 }
 
-.certificates .icon-box:hover .icon {
+/* .certificates .icon-box:hover .icon {
   background: #fff;
 }
 
 .certificates .icon-box:hover .icon i {
   color: #149ddd;
-}
+} */
 
 .certificates .title {
   margin-left: 80px;

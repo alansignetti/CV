@@ -1,9 +1,8 @@
 (function () {
   window.onload = () => {
-    const age = getAge();
-    const exp = getExperience();
-    document.getElementById("age").textContent = age;
-    console.log(exp);
+    // const age = getAge();
+    // const exp = getExperience();
+    // document.getElementById("age").textContent = age;
   };
 
   ("use strict");
@@ -20,6 +19,16 @@
   });
   tippy("#devicon-angular", {
     content: "Angular",
+    arrow: true,
+    followCursor: true,
+  });
+  tippy("#devicon-react", {
+    content: "React",
+    arrow: true,
+    followCursor: true,
+  });
+  tippy("#devicon-tailwindcss", {
+    content: "Tailwind CSS",
     arrow: true,
     followCursor: true,
   });
@@ -75,8 +84,33 @@
   });
 
   // portfolio
+  tippy("#portfolio-atelier-sushi", {
+    content: "Atelier Sushi - MERN Stack",
+    arrow: false,
+    placement: "top-start",
+  });
+  tippy("#portfolio-modernize", {
+    content: "Modernize Challenge - Angular & Angular Material",
+    arrow: false,
+    placement: "top-start",
+  });
+  tippy("#portfolio-pixelforce", {
+    content: "Pixel Force Challenge - React & Tailwind CSS",
+    arrow: false,
+    placement: "top-start",
+  });
+  tippy("#portfolio-minutentag", {
+    content: "Minutentag Challenge",
+    arrow: false,
+    placement: "top-start",
+  });
   tippy("#portfolio-mcdonalds", {
-    content: "McDonalds Clone Project",
+    content: "McDonalds Clone Project - Angular",
+    arrow: false,
+    placement: "top-start",
+  });
+  tippy("#portfolio-resonate", {
+    content: "Resonate Challenge - Angular",
     arrow: false,
     placement: "top-start",
   });
@@ -114,6 +148,7 @@
   const getAge = () => {
     let birth = new Date("1999-02-12");
     let today = new Date();
+    let hoy = new Date();
     let diffMonths = today.getMonth() - birth.getMonth();
     let age = today.getFullYear() - birth.getFullYear();
     if (
