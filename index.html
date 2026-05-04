@@ -3,745 +3,1431 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
-    <title>Alan Signetti</title>
+    <title>Alan Signetti — Modern</title>
     <meta content="Frontend Developer" name="description" />
-    <meta content="Frontend" name="keywords" />
-
-    <!-- Favicons -->
-
     <link href="assets/img/favicon.png" rel="icon" />
 
-    <!-- Skills devicon -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-
-    <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet" />
-    <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet" />
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet" />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0a0a0f;
+        --bg-soft: #11111a;
+        --surface: rgba(255, 255, 255, 0.04);
+        --surface-strong: rgba(255, 255, 255, 0.07);
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #f2f2f5;
+        --text-dim: #9a9aa8;
+        --accent: #7c5cff;
+        --accent-2: #00e0c6;
+        --accent-3: #ff5e8a;
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(
+            circle at 10% 0%,
+            rgba(124, 92, 255, 0.18),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(0, 224, 198, 0.12),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 94, 138, 0.1),
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Navigation */
+      .nav {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        padding: 10px 14px;
+        background: rgba(17, 17, 26, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        display: flex;
+        gap: 4px;
+      }
+
+      .nav a {
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-dim);
+        transition: all 0.25s ease;
+      }
+
+      .nav a:hover,
+      .nav a.active {
+        background: var(--surface-strong);
+        color: var(--text);
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent-2);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      h2.section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(32px, 5vw, 56px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .section-sub {
+        color: var(--text-dim);
+        font-size: 17px;
+        max-width: 620px;
+        margin-bottom: 56px;
+      }
+
+      /* Hero */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 120px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 13px;
+        color: var(--text-dim);
+        margin-bottom: 28px;
+      }
+
+      .hero-tag .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent-2);
+        box-shadow: 0 0 12px var(--accent-2);
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+
+      .hero h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(48px, 8vw, 96px);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 24px;
+      }
+
+      .hero h1 .gradient {
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent-3) 50%,
+          var(--accent-2) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        font-size: 19px;
+        color: var(--text-dim);
+        max-width: 520px;
+        margin-bottom: 36px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: 1px solid var(--border);
+      }
+
+      .btn-primary {
+        background: var(--text);
+        color: var(--bg);
+        border-color: var(--text);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(255, 255, 255, 0.15);
+      }
+
+      .btn-ghost {
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      .btn-ghost:hover {
+        background: var(--surface-strong);
+        transform: translateY(-2px);
+      }
+
+      .hero-avatar {
+        position: relative;
+        width: 280px;
+        height: 280px;
+      }
+
+      .hero-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+      }
+
+      .hero-avatar::before {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          var(--accent),
+          var(--accent-2),
+          var(--accent-3),
+          var(--accent)
+        );
+        z-index: -1;
+        animation: rotate 12s linear infinite;
+        filter: blur(12px);
+        opacity: 0.7;
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* About */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .info-card {
+        padding: 28px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+      }
+
+      .info-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      .info-list {
+        list-style: none;
+        display: grid;
+        gap: 14px;
+      }
+
+      .info-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+      }
+
+      .info-list li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .info-list .key {
+        color: var(--text-dim);
+      }
+
+      .info-list .val {
+        color: var(--text);
+        font-weight: 500;
+        text-align: right;
+      }
+
+      .val-copy {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .copy-btn {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text-dim);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        padding: 0;
+      }
+
+      .copy-btn:hover {
+        background: var(--surface-strong);
+        color: var(--text);
+        border-color: rgba(124, 92, 255, 0.4);
+      }
+
+      .copy-btn .icon-check {
+        position: absolute;
+        opacity: 0;
+        transform: scale(0.6);
+        transition: all 0.2s ease;
+        color: var(--accent-2);
+      }
+
+      .copy-btn .icon-copy {
+        transition: all 0.2s ease;
+      }
+
+      .copy-btn.copied .icon-copy {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+
+      .copy-btn.copied .icon-check {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .copy-btn.copied {
+        border-color: var(--accent-2);
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+      }
+
+      .skill-card {
+        aspect-ratio: 1;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+        transition: all 0.25s ease;
+        cursor: default;
+      }
+
+      .skill-card:hover {
+        background: var(--surface-strong);
+        transform: translateY(-4px);
+        border-color: rgba(124, 92, 255, 0.4);
+      }
+
+      .skill-card img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .skill-card span {
+        font-size: 12px;
+        color: var(--text-dim);
+        font-weight: 500;
+      }
+
+      /* Resume */
+      .resume-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .resume-col h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .resume-col h3::before {
+        content: "";
+        width: 6px;
+        height: 24px;
+        background: linear-gradient(180deg, var(--accent), var(--accent-2));
+        border-radius: 3px;
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 24px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        left: 4px;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 32px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: -24px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.15);
+      }
+
+      .timeline-item h4 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 17px;
+        margin-bottom: 4px;
+      }
+
+      .timeline-item .meta {
+        font-size: 13px;
+        color: var(--accent-2);
+        margin-bottom: 8px;
+      }
+
+      .timeline-item .place {
+        font-size: 13px;
+        color: var(--text-dim);
+        margin-bottom: 10px;
+      }
+
+      .timeline-item .place a {
+        color: var(--text-dim);
+        border-bottom: 1px dotted var(--text-dim);
+      }
+
+      .timeline-item p,
+      .timeline-item li {
+        font-size: 14px;
+        color: var(--text-dim);
+        line-height: 1.65;
+        margin-bottom: 6px;
+      }
+
+      .timeline-item ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .timeline-item ul li::before {
+        content: "›";
+        color: var(--accent);
+        margin-right: 8px;
+      }
+
+      /* Portfolio */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .project-card {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: pointer;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(124, 92, 255, 0.5);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .project-card .overlay {
+        position: absolute;
+        inset: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: linear-gradient(
+          180deg,
+          transparent 40%,
+          rgba(10, 10, 15, 0.95) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover .overlay {
+        opacity: 1;
+      }
+
+      .project-card .overlay h4 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+
+      .project-card .overlay span {
+        font-size: 12px;
+        color: var(--accent-2);
+      }
+
+      /* Certificates */
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .cert-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all 0.25s ease;
+      }
+
+      .cert-card:hover {
+        background: var(--surface-strong);
+        transform: translateY(-4px);
+      }
+
+      .cert-card img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        background: #fff;
+      }
+
+      .cert-card .cert-body {
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .cert-card .cert-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-3));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      .cert-card h4 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 16px;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 0 40px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+      }
+
+      .socials {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .socials a {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s ease;
+      }
+
+      .socials a:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .socials svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+
+      footer p {
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+
+      .footer-sep {
+        margin: 0 8px;
+        opacity: 0.5;
+      }
+
+      .footer-link {
+        color: var(--text-dim);
+        border-bottom: 1px dotted rgba(154, 154, 168, 0.4);
+        transition: all 0.2s ease;
+      }
+
+      .footer-link:hover {
+        color: var(--text);
+        border-bottom-color: var(--accent-2);
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .nav {
+          top: 12px;
+          padding: 6px;
+          max-width: calc(100% - 24px);
+          overflow-x: auto;
+        }
+
+        .nav a {
+          padding: 6px 12px;
+          font-size: 12px;
+          white-space: nowrap;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          text-align: center;
+        }
+
+        .hero-avatar {
+          margin: 0 auto;
+          width: 220px;
+          height: 220px;
+        }
+
+        .hero-actions {
+          justify-content: center;
+        }
+
+        .about-grid,
+        .resume-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        section {
+          padding: 70px 0;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <!-- ======= Mobile nav toggle button ======= -->
-    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+    <nav class="nav">
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
+      <a href="#portfolio">Work</a>
+      <a href="#certificates">Certificates</a>
+    </nav>
 
-    <!-- ======= Header ======= -->
-    <header id="header">
-      <div class="d-flex flex-column">
-        <div class="profile">
-          <img
-            src="assets/img/profile-img.jpg"
-            alt=""
-            class="rounded-circle height-profile profile-img" />
-          <h1 class="text-light">
-            <a href="index.html">Alan Signetti Demand</a>
-          </h1>
-          <div class="social-links mt-3 text-center">
-            <a href="https://github.com/alansignetti" class="github"
-              ><i class="bx bxl-github"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/alan-signetti-demand/"
-              class="linkedin"
-              ><i class="bx bxl-linkedin"></i
-            ></a>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-tag">
+              <span class="dot"></span> Available for new projects
+            </div>
+            <h1>
+              Alan Signetti<br />
+              <span class="gradient">Frontend Developer</span>
+            </h1>
+            <p>
+              University Programmer Analyst building intuitive, high-quality
+              user interfaces with React, Angular and TypeScript since 2020.
+            </p>
+            <div class="hero-actions">
+              <a href="#portfolio" class="btn btn-primary">
+                View work
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a href="#about" class="btn btn-ghost">About me</a>
+            </div>
+          </div>
+          <div class="hero-avatar">
+            <img src="assets/img/profile-img.jpg" alt="Alan Signetti" />
           </div>
         </div>
-
-        <nav id="navbar" class="nav-menu navbar">
-          <ul>
-            <li>
-              <a href="#hero" class="nav-link scrollto active"
-                ><i class="bx bx-home"></i> <span>Home</span></a
-              >
-            </li>
-            <li>
-              <a href="#about" class="nav-link scrollto"
-                ><i class="bx bx-user"></i> <span>About</span></a
-              >
-            </li>
-            <li>
-              <a href="#skills" class="nav-link scrollto"
-                ><i class="bx bx-desktop"></i> <span>Skills</span></a
-              >
-            </li>
-            <li>
-              <a href="#resume" class="nav-link scrollto"
-                ><i class="bx bx-file-blank"></i> <span>Resume</span></a
-              >
-            </li>
-            <li>
-              <a href="#portfolio" class="nav-link scrollto"
-                ><i class="bx bx-book-content"></i> <span>Portfolio</span></a
-              >
-            </li>
-            <li>
-              <a href="#certificates" class="nav-link scrollto"
-                ><i class="bx bx-certification"></i>
-                <span>Certificates</span></a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <!-- End Header -->
-
-    <!-- ======= Hero Section ======= -->
-    <section
-      id="hero"
-      class="d-flex flex-column justify-content-center align-items-center">
-      <div class="hero-container" data-aos="fade-in">
-        <h1>Alan Signetti Demand</h1>
-        <p>
-          I'm
-          <span class="typed" data-typed-items="a Frontend Developer"></span>
-        </p>
       </div>
     </section>
-    <!-- End Hero -->
 
-    <main id="main">
-      <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container">
-          <div class="section-title">
-            <h2>About</h2>
-            <p>
-              University Programmer Analyst, I have been working in software
-              development since February 2020
-              <span id="experience"></span>.
-            </p>
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <span class="eyebrow">About</span>
+        <h2 class="section-title">A bit about me.</h2>
+        <p class="section-sub">
+          University Programmer Analyst, working in software development since
+          February 2020. Passionate about building intuitive interfaces that
+          enhance user experience, and collaborating in agile teams.
+        </p>
 
-            <p>
-              With a strong passion for building intuitive and attractive user
-              interfaces, I thrive on developing high-quality functionalities
-              that enhance the user experience. As a collaborator in agile
-              teams, I enjoy taking on new challenges.
-            </p>
+        <div class="about-grid">
+          <div class="info-card">
+            <h3>Personal info</h3>
+            <ul class="info-list">
+              <li>
+                <span class="key">Website</span>
+                <span class="val">www.alansignetti.com</span>
+              </li>
+              <li>
+                <span class="key">Phone</span>
+                <span class="val val-copy">
+                  <span>+61 466 624 190</span>
+                  <button
+                    class="copy-btn"
+                    data-copy="+61 466 624 190"
+                    aria-label="Copy phone number">
+                    <svg
+                      class="icon-copy"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                    <svg
+                      class="icon-check"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </button>
+                </span>
+              </li>
+              <li>
+                <span class="key">Location</span>
+                <span class="val">Australia</span>
+              </li>
+            </ul>
           </div>
-
-          <div class="row">
-            <div class="col-lg-4" data-aos="fade-right">
-              <img src="assets/img/profile-img.jpg" class="img-fluid" alt="" />
-            </div>
-            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-              <h3>Frontend Developer</h3>
-
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Website:</strong>
-                      <span>www.alansignetti.com</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Phone:</strong> <span>+61 466 624 190</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Location:</strong>
-                      <span>Australia</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Email:</strong>
-                      <span>alansignetti@gmail.com</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Remote:</strong> <span>Available</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End About Section -->
-
-      <!-- ======= Skills Section ======= -->
-      <section id="skills" class="skills section-bg">
-        <div class="container">
-          <div class="section-title">
-            <h2>Skills</h2>
-            <p>
-              Besides studying at the university, I am constantly trying to
-              learn new technologies related to web development and improve the
-              ones I already know.
-            </p>
-          </div>
-
-          <div class="skills-content">
-            <div
-              class="col-lg-12 col-md-12 col-sm-10 col-xs-12 skillsGrid"
-              data-aos="fade-up">
-              <img
-                id="devicon-html"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg"
-                alt="The logo icon for HTML 5" />
-              <img
-                id="devicon-css"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg"
-                alt="The logo icon for Javascript" />
-              <img
-                id="devicon-javascript"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                alt="The logo icon for Angular" />
-              <img
-                id="devicon-typescript"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                alt="The logo icon for Typescript" />
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg"
-                id="devicon-react"
-                class="devicon"
-                alt="The logo icon for React" />
-              <img
-                id="devicon-angular"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
-                alt="The logo icon for Angular" />
-              <img
-                id="devicon-jquery"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original-wordmark.svg"
-                alt="The logo icon for JQuery" />
-              <img
-                id="devicon-tailwindcss"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain-wordmark.svg"
-                alt="The logo icon for Tailwind" />
-              <img
-                id="devicon-bootstrap"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg"
-                alt="The logo icon for Bootstrap" />
-              <img
-                id="devicon-git"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg"
-                alt="The logo icon for GitHub" />
-              <img
-                id="devicon-npm"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
-                alt="The logo icon for NPM" />
-              <img
-                id="devicon-node"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"
-                alt="The logo icon for NodeJS" />
-              <!-- <img
-                id="devicon-mysql"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
-                alt="The logo icon for MySQL"
-              /> -->
-              <img
-                id="devicon-mongodb"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg"
-                alt="The logo icon for MongoDB" />
-              <img
-                id="devicon-mssql"
-                class="devicon"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg"
-                alt="The logo icon for MSSQL" />
-            </div>
+          <div class="info-card">
+            <h3>Contact</h3>
+            <ul class="info-list">
+              <li>
+                <span class="key">Email</span>
+                <span class="val val-copy">
+                  <span>alansignetti@gmail.com</span>
+                  <button
+                    class="copy-btn"
+                    data-copy="alansignetti@gmail.com"
+                    aria-label="Copy email">
+                    <svg
+                      class="icon-copy"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                    <svg
+                      class="icon-check"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </button>
+                </span>
+              </li>
+              <li>
+                <span class="key">Remote</span>
+                <span class="val">Available</span>
+              </li>
+              <li>
+                <span class="key">Role</span>
+                <span class="val">Frontend Developer</span>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
-      <!-- End Skills Section -->
+      </div>
+    </section>
 
-      <!-- ======= Resume Section ======= -->
-      <section id="resume" class="resume">
-        <div class="container">
-          <div class="section-title">
-            <h2>Resume</h2>
-            <p>
-              I have experience with HTML, CSS, JavaScript, Angular, React,
-              TypeScript, Bootstrap, Tailwind CSS, Flexbox, Angular Material,
-              API Rest, NgRx, Git, Scrum, Kanban.
-            </p>
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <span class="eyebrow">Stack</span>
+        <h2 class="section-title">Tools I work with.</h2>
+        <p class="section-sub">
+          Constantly learning new technologies related to web development and
+          improving the ones I already know.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              alt="HTML5" />
+            <span>HTML5</span>
           </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              alt="CSS3" />
+            <span>CSS3</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript" />
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+              alt="TypeScript" />
+            <span>TypeScript</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+              alt="React" />
+            <span>React</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+              alt="Angular" />
+            <span>Angular</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg"
+              alt="jQuery" />
+            <span>jQuery</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              alt="Tailwind" />
+            <span>Tailwind</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+              alt="Bootstrap" />
+            <span>Bootstrap</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              alt="Git" />
+            <span>Git</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
+              alt="NPM" />
+            <span>NPM</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="Node" />
+            <span>Node.js</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+              alt="MongoDB" />
+            <span>MongoDB</span>
+          </div>
+          <div class="skill-card">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
+              alt="MSSQL" />
+            <span>MS SQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="row">
-            <div class="col-lg-6" data-aos="fade-up">
-              <h3 class="resume-title">Education</h3>
-              <div class="resume-item">
+    <!-- Resume -->
+    <section id="resume">
+      <div class="container">
+        <span class="eyebrow">Resume</span>
+        <h2 class="section-title">Education & experience.</h2>
+        <p class="section-sub">
+          Experience with HTML, CSS, JavaScript, Angular, React, TypeScript,
+          Bootstrap, Tailwind, Flexbox, Angular Material, REST APIs, NgRx, Git,
+          Scrum, Kanban.
+        </p>
+
+        <div class="resume-grid">
+          <div class="resume-col">
+            <h3>Education</h3>
+            <div class="timeline">
+              <div class="timeline-item">
                 <h4>University Programmer Analyst</h4>
-                <h5>2018 - 2022</h5>
-                <p><em>Universidad Nacional de Lanús, Argentina </em></p>
-                <p>Over the years I have seen the following technologies:</p>
-                <li>Object Oriented Programming (Java / Spring / Angular)</li>
-                <li>SQL Database Development</li>
-                <li>Software Engineering</li>
-                <li>Multiple levels of Math</li>
+                <div class="meta">2018 — 2022</div>
+                <div class="place">
+                  Universidad Nacional de Lanús, Argentina
+                </div>
+                <ul>
+                  <li>Object Oriented Programming (Java / Spring / Angular)</li>
+                  <li>SQL Database Development</li>
+                  <li>Software Engineering</li>
+                  <li>Multiple levels of Math</li>
+                </ul>
               </div>
-              <div class="resume-item">
+              <div class="timeline-item">
                 <h4>Certificates</h4>
-                <h5>
-                  <a href="#certificates"
-                    ><i class="bx bx-certification"></i>
-                    <span>Click here!</span></a
-                  >
-                </h5>
+                <div class="meta">Ongoing</div>
+                <p>
+                  <a href="#certificates">See all certificates →</a>
+                </p>
               </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="resume-title">Professional Experience</h3>
+          </div>
 
-              <div class="resume-item">
+          <div class="resume-col">
+            <h3>Professional Experience</h3>
+            <div class="timeline">
+              <div class="timeline-item">
                 <h4>Frontend Developer</h4>
-                <h5>Apr 2024 - Present</h5>
-                <p>
-                  <em
-                    ><a href="https://datanova.com.au/" target="_blank"
-                      >Sunshine Coast, Australia</a
-                    ></em
+                <div class="meta">Apr 2024 — Present</div>
+                <div class="place">
+                  <a href="https://flowlogic.com.au/" target="_blank"
+                    >Flowlogic · Sunshine Coast, Australia</a
                   >
-                </p>
+                </div>
+                <ul>
+                  <li>React, Material UI, TypeScript, HTML5, CSS3, Git</li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <h4>Frontend Developer</h4>
+                <div class="meta">May 2022 — Jul 2023 · 1 yr 3 mo</div>
+                <div class="place">
+                  <a href="https://expand.com.uy/" target="_blank"
+                    >Expand, Uruguay</a
+                  >
+                </div>
                 <ul>
                   <li>
-                    Technologies: React, Material UI, Typescript , HTML5 & CSS3,
-                    Git
+                    Angular, Angular Material, TypeScript, HTML5, CSS3, Git
+                  </li>
+                  <li>
+                    Built complex omnichannel and admin web applications.
+                    Implemented high-quality features with Angular, RxJS, NgRx,
+                    Material Design and TypeScript. Worked in agile teams using
+                    Kanban.
                   </li>
                 </ul>
               </div>
 
-              <div class="resume-item">
-                <h4>Frontend Developer</h4>
-                <h5>May 2022 - Jul 2023 (1 yr 3 months)</h5>
-                <p>
-                  <em
-                    ><a href="https://expand.com.uy/" target="_blank"
-                      >Expand, Uruguay</a
-                    ></em
-                  >
-                </p>
-                <ul>
-                  <li>
-                    Technologies: Angular, Angular Material, Typescript , HTML5
-                    & CSS3, Git, Redmine
-                  </li>
-                  <li>
-                    I contributed to the development of a complex omnichannel
-                    and administration web application. I worked on implementing
-                    high-quality functionalities and designing intuitive and
-                    attractive user interfaces. With skills in tools like
-                    Angular, HTML5, CSS, RxJS, NgRx, Material Design, and
-                    TypeScript, I developed customized solutions that improved
-                    the user experience and increased the efficiency of business
-                    processes. Additionally, I worked collaboratively in agile
-                    teams, applying the Kanban methodology.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
+              <div class="timeline-item">
                 <h4>FullStack Developer</h4>
-                <h5>Aug 2021 - May 2022 (10 months)</h5>
-                <p>
-                  <em
-                    ><a href="https://www.cartasur.com.ar/" target="_blank"
-                      >Cartasur Cards SA, Argentina</a
-                    ></em
+                <div class="meta">Aug 2021 — May 2022 · 10 mo</div>
+                <div class="place">
+                  <a href="https://www.cartasur.com.ar/" target="_blank"
+                    >Cartasur Cards SA, Argentina</a
                   >
-                </p>
+                </div>
                 <ul>
                   <li>
-                    Technologies: Angular, React, HTML5 & CSS, JQuery,
-                    JavaScript, SQL Server,.Net, SVN
+                    Angular, React, HTML5, CSS, jQuery, JavaScript, SQL Server,
+                    .Net, SVN
                   </li>
                   <li>
-                    I have been responsible for the development and maintenance
-                    of web and desktop applications, ensuring that they meet
-                    quality standards and satisfy customer needs. I have worked
-                    on creating attractive and functional user interfaces using
-                    technologies such as HTML, CSS, and JavaScript.
-                    Additionally, I have collaborated on the implementation of
-                    high-quality functionalities, using tools like Angular and
-                    jQuery. I have worked in multidisciplinary teams, applying
-                    agile methodologies and working collaboratively to meet
-                    established deadlines and ensure customer satisfaction.
+                    Developed and maintained web and desktop applications,
+                    creating attractive UIs and shipping high-quality features
+                    in multidisciplinary agile teams.
                   </li>
                 </ul>
               </div>
 
-              <div class="resume-item">
+              <div class="timeline-item">
                 <h4>Deloitte Center of Excellence Consultant</h4>
-                <h5>Jan 2021 - Aug 2021 (8 months)</h5>
-                <p>
-                  <em
-                    ><a
-                      href="https://www2.deloitte.com/ar/es.html"
-                      target="_blank"
-                      >Deloitte, Argentina</a
-                    >
-                  </em>
-                </p>
-                <ul>
-                  <li>
-                    Develop, stabilize, debugging and support in Big data
-                    (Cloudera) platform for Deloitte Data Risks solutions
-                  </li>
-                  <li>
-                    Data ingestion, processing and reports dashboard operation
-                    of DataCheker solution
-                  </li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Full Stack Developer</h4>
-                <h5>Feb 2020 - Jan 2021 (1 yr)</h5>
-                <p>
-                  <em
-                    ><a
-                      href="https://engage-sc.com.ar/soluciones/"
-                      target="_blank"
-                      >Soluciones S.A, Argentina</a
-                    ></em
+                <div class="meta">Jan 2021 — Aug 2021 · 8 mo</div>
+                <div class="place">
+                  <a href="https://www2.deloitte.com/ar/es.html" target="_blank"
+                    >Deloitte, Argentina</a
                   >
-                </p>
+                </div>
                 <ul>
                   <li>
-                    Technologies: HTML & CSS, JavaScript, SQL Server, Engage CRM
+                    Develop, stabilize, debug and support Big Data (Cloudera)
+                    platform for Deloitte Data Risks solutions.
                   </li>
                   <li>
-                    Website development for an important financial institution
+                    Data ingestion, processing and reports dashboard for
+                    DataChecker.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <h4>Full Stack Developer</h4>
+                <div class="meta">Feb 2020 — Jan 2021 · 1 yr</div>
+                <div class="place">
+                  <a href="https://engage-sc.com.ar/soluciones/" target="_blank"
+                    >Soluciones S.A, Argentina</a
+                  >
+                </div>
+                <ul>
+                  <li>HTML, CSS, JavaScript, SQL Server, Engage CRM</li>
+                  <li>
+                    Website development for an important financial institution.
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- End Resume Section -->
+      </div>
+    </section>
 
-      <!-- ======= Portfolio Section ======= -->
-      <section id="portfolio" class="portfolio section-bg">
-        <div class="container">
-          <div class="section-title">
-            <h2>Portfolio</h2>
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <div class="container">
+        <span class="eyebrow">Selected work</span>
+        <h2 class="section-title">Recent projects.</h2>
+        <p class="section-sub">
+          A selection of projects I've built and contributed to.
+        </p>
+
+        <div class="portfolio-grid">
+          <a
+            class="project-card"
+            href="https://ateliersushi.co/"
+            target="_blank">
+            <img
+              src="assets/img/portfolio/atelier-sushi.jpeg"
+              alt="Atelier Sushi" />
+            <div class="overlay">
+              <span>Web</span>
+              <h4>Atelier Sushi</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/modernize"
+            target="_blank">
+            <img
+              src="assets/img/portfolio/modernize-challenge.png"
+              alt="Modernize" />
+            <div class="overlay">
+              <span>Challenge</span>
+              <h4>Modernize</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/pixel-force"
+            target="_blank">
+            <img src="assets/img/portfolio/pixel-force.jpeg" alt="PixelForce" />
+            <div class="overlay">
+              <span>Web</span>
+              <h4>PixelForce</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/minutentag-layout"
+            target="_blank">
+            <img src="assets/img/portfolio/minutentag.jpeg" alt="Minutentag" />
+            <div class="overlay">
+              <span>Layout</span>
+              <h4>Minutentag</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/McDonalds-Clone"
+            target="_blank">
+            <img
+              src="assets/img/portfolio/McDonalds1.jpg"
+              alt="McDonalds Clone" />
+            <div class="overlay">
+              <span>App</span>
+              <h4>McDonalds Clone</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/resonate"
+            target="_blank">
+            <img src="assets/img/portfolio/resonate.jpeg" alt="Resonate" />
+            <div class="overlay">
+              <span>Web</span>
+              <h4>Resonate</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/AngularProject"
+            target="_blank">
+            <img
+              src="assets/img/portfolio/AngularProject.jpg"
+              alt="Angular Project" />
+            <div class="overlay">
+              <span>Angular</span>
+              <h4>Angular Project</h4>
+            </div>
+          </a>
+          <a class="project-card" href="portfolio-3.html" target="_blank">
+            <img
+              src="assets/img/portfolio/portfolio-3.jpg"
+              alt="JQuery Project" />
+            <div class="overlay">
+              <span>jQuery</span>
+              <h4>jQuery Project</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/Monks"
+            target="_blank">
+            <img src="assets/img/portfolio/portfolio-2.jpg" alt="Monks" />
+            <div class="overlay">
+              <span>Slider</span>
+              <h4>Media Monks</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="responsive-project/index.html"
+            target="_blank">
+            <img
+              src="assets/img/portfolio/portfolio-4.JPG"
+              alt="Responsive Project" />
+            <div class="overlay">
+              <span>Responsive</span>
+              <h4>Responsive Project</h4>
+            </div>
+          </a>
+          <a class="project-card" href="portfolio-1.html" target="_blank">
+            <img src="assets/img/portfolio/portfolio-1.jpg" alt="Simple Web" />
+            <div class="overlay">
+              <span>Web</span>
+              <h4>Simple Web</h4>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://alansignetti.github.io/blooz"
+            target="_blank">
+            <img src="assets/img/portfolio/Vue-test.jpg" alt="Blooz" />
+            <div class="overlay">
+              <span>Vue</span>
+              <h4>Blooz</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates">
+      <div class="container">
+        <span class="eyebrow">Credentials</span>
+        <h2 class="section-title">Certificates.</h2>
+        <p class="section-sub">
+          Continuous learning through official certifications.
+        </p>
+
+        <div class="cert-grid">
+          <div class="cert-card">
+            <img
+              src="assets/img/certificates/certificate-angular.png"
+              alt="Angular Master" />
+            <div class="cert-body">
+              <div class="cert-icon">★</div>
+              <h4>Angular Master</h4>
+            </div>
           </div>
-
-          <div
-            class="row portfolio-container"
-            data-aos="fade-up"
-            data-aos-delay="100">
-            <!-- ======= Atelier Sushi ======= -->
-            <div
-              class="col-lg-4 col-md-6 portfolio-item"
-              onclick="window.open(`https://ateliersushi.co/`)"
-              id="portfolio-atelier-sushi">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/atelier-sushi.jpeg"
-                  class="img-fluid img-height"
-                  alt="Atelier Sushi" />
-              </div>
+          <div class="cert-card">
+            <img
+              src="assets/img/certificates/certificate-1.png"
+              alt="Toefl ITP" />
+            <div class="cert-body">
+              <div class="cert-icon">★</div>
+              <h4>Toefl ITP</h4>
             </div>
-            <!-- ======= Atelier Sushi  ======= -->
-
-            <!-- ======= Modernize ======= -->
-            <div
-              class="col-lg-4 col-md-6 portfolio-item"
-              onclick="window.open(`https://alansignetti.github.io/modernize`)"
-              id="portfolio-modernize">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/modernize-challenge.png"
-                  class="img-fluid img-height"
-                  alt="Modernize" />
-              </div>
-            </div>
-            <!-- ======= Modernize ======= -->
-
-            <!-- ======= PixelForce ======= -->
-            <div
-              class="col-lg-4 col-md-6 portfolio-item"
-              onclick="window.open(`https://alansignetti.github.io/pixel-force`)"
-              id="portfolio-pixelforce">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/pixel-force.jpeg"
-                  class="img-fluid img-height"
-                  alt="PixelForce" />
-              </div>
-            </div>
-            <!-- ======= PixelForce ======= -->
           </div>
-          <div
-            class="row portfolio-container"
-            data-aos="fade-up"
-            data-aos-delay="100">
-            <!-- ======= Minutentag ======= -->
-            <div
-              class="col-lg-4 col-md-6 portfolio-item"
-              onclick="window.open(`https://alansignetti.github.io/minutentag-layout`)"
-              id="portfolio-minutentag">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/minutentag.jpeg"
-                  class="img-fluid img-height"
-                  alt="Minutentag" />
-              </div>
+          <div class="cert-card">
+            <img
+              src="assets/img/certificates/certificate-2.png"
+              alt="SQL Server" />
+            <div class="cert-body">
+              <div class="cert-icon">★</div>
+              <h4>SQL Server</h4>
             </div>
-            <!-- ======= Minutentag ======= -->
-
-            <!-- ======= McDonalds ======= -->
-            <div
-              class="col-lg-4 col-md-6 portfolio-item"
-              onclick="window.open(`https://alansignetti.github.io/McDonalds-Clone`)"
-              id="portfolio-mcdonalds">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/McDonalds1.jpg"
-                  class="img-fluid img-height"
-                  alt="McDonalds App" />
-              </div>
+          </div>
+          <div class="cert-card">
+            <img
+              src="assets/img/certificates/certificate-3.png"
+              alt="Responsive Web Design" />
+            <div class="cert-body">
+              <div class="cert-icon">★</div>
+              <h4>Responsive Web Design</h4>
             </div>
-            <!-- ======= McDonalds ======= -->
-
-            <!-- ======= Resonate ======= -->
-            <div
-              class="col-lg-4 col-md-6 portfolio-item"
-              onclick="window.open(`https://alansignetti.github.io/resonate`)"
-              id="portfolio-resonate">
-              <div class="portfolio-wrap">
-                <img
-                  src="assets/img/portfolio/resonate.jpeg"
-                  class="img-fluid img-height"
-                  alt="Resonate" />
-              </div>
-            </div>
-            <!-- ======= Resonate ======= -->
-
-            <div
-              class="row portfolio-container"
-              data-aos="fade-up"
-              data-aos-delay="100">
-              <!-- ======= Angular ======= -->
-              <div
-                class="col-lg-4 col-md-6 portfolio-item"
-                onclick="window.open(`https://alansignetti.github.io/AngularProject`)"
-                id="portfolio-angular">
-                <div class="portfolio-wrap">
-                  <img
-                    src="assets/img/portfolio/AngularProject.jpg"
-                    class="img-fluid img-height"
-                    alt="McDonalds App Clone" />
-                </div>
-              </div>
-              <!-- ======= Angular ======= -->
-
-              <!-- ======= JQuery ======= -->
-              <div
-                class="col-lg-4 col-md-6 portfolio-item"
-                onclick="window.open(`portfolio-3.html`)"
-                id="portfolio-3">
-                <div class="portfolio-wrap">
-                  <img
-                    src="assets/img/portfolio/portfolio-3.jpg"
-                    class="img-fluid img-height"
-                    alt="JQuery Project" />
-                </div>
-              </div>
-              <!-- ======= JQuery ======= -->
-
-              <!-- ======= MediaMonks ======= -->
-              <div
-                class="col-lg-4 col-md-6 portfolio-item"
-                onclick="window.open(`https://alansignetti.github.io/Monks`)"
-                id="portfolio-monks">
-                <div class="portfolio-wrap">
-                  <img
-                    src="assets/img/portfolio/portfolio-2.jpg"
-                    class="img-fluid img-height"
-                    alt="Slider" />
-                </div>
-              </div>
-              <!-- ======= MediaMonks ======= -->
-            </div>
-
-            <div
-              class="row portfolio-container"
-              data-aos="fade-up"
-              data-aos-delay="100">
-              <!-- ======= Responsive ======= -->
-              <div
-                class="col-lg-4 col-md-6 portfolio-item"
-                onclick="window.open(`responsive-project/index.html`)"
-                id="portfolio-responsive">
-                <div class="portfolio-wrap">
-                  <img
-                    src="assets/img/portfolio/portfolio-4.JPG"
-                    class="img-fluid img-height"
-                    alt="Responsive Project" />
-                </div>
-              </div>
-              <!-- ======= Responsive ======= -->
-
-              <!-- ======= SimpleWeb ======= -->
-              <div
-                class="col-lg-4 col-md-6 portfolio-item"
-                onclick="window.open(`portfolio-1.html`)"
-                id="portfolio-1">
-                <div class="portfolio-wrap">
-                  <img
-                    src="assets/img/portfolio/portfolio-1.jpg"
-                    class="img-fluid img-height"
-                    alt="Simple Web" />
-                </div>
-              </div>
-              <!-- ======= SimpleWeb ======= -->
-
-              <!-- ======= Blooz ======= -->
-              <div
-                class="col-lg-4 col-md-6 portfolio-item"
-                onclick="window.open(`https://alansignetti.github.io/blooz`)"
-                id="portfolio-blooz">
-                <div class="portfolio-wrap">
-                  <img
-                    src="assets/img/portfolio/Vue-test.jpg"
-                    class="img-fluid img-height"
-                    alt="Vue Project" />
-                </div>
-              </div>
-              <!-- ======= Blooz ======= -->
+          </div>
+          <div class="cert-card">
+            <img
+              src="assets/img/certificates/certificate-4.png"
+              alt="JavaScript to the Details" />
+            <div class="cert-body">
+              <div class="cert-icon">★</div>
+              <h4>JavaScript to the Details</h4>
             </div>
           </div>
         </div>
-      </section>
-      <!-- End Portfolio Section -->
+      </div>
+    </section>
 
-      <!-- ======= Certificates Section ======= -->
-      <section id="certificates" class="certificates">
-        <div class="container">
-          <div class="section-title">
-            <h2>Certificates</h2>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bx bx-certification"></i></div>
-              <h4 class="title">Angular Master</h4>
-              <img
-                src="assets/img/certificates/certificate-angular.png"
-                class="img-fluid img-height"
-                alt="Angular" />
-            </div>
-
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bx bx-certification"></i></div>
-              <h4 class="title">Toefl ITP</h4>
-              <img
-                src="assets/img/certificates/certificate-1.png"
-                class="img-fluid img-height"
-                alt="toefl-itp" />
-            </div>
-
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="100">
-              <div class="icon"><i class="bx bx-certification"></i></div>
-              <h4 class="title">SQL Server</h4>
-              <br />
-              <img
-                src="assets/img/certificates/certificate-2.png"
-                class="img-fluid img-height"
-                alt="sql-server" />
-            </div>
-
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="100">
-              <div class="icon"><i class="bx bx-certification"></i></div>
-              <h4 class="title">Responsive Web Design</h4>
-              <br />
-              <img
-                src="assets/img/certificates/certificate-3.png"
-                class="img-fluid img-height"
-                alt="Responsive-web-design" />
-            </div>
-
-            <div
-              class="col-lg-4 col-md-6 icon-box"
-              data-aos="fade-up"
-              data-aos-delay="100">
-              <div class="icon"><i class="bx bx-certification"></i></div>
-              <h4 class="title">JavaScript to the Details</h4>
-              <br />
-              <img
-                src="assets/img/certificates/certificate-4.png"
-                class="img-fluid img-height"
-                alt="Responsive-web-design" />
-            </div>
-          </div>
+    <footer>
+      <div class="container">
+        <div class="socials">
+          <a
+            href="https://github.com/alansignetti"
+            target="_blank"
+            aria-label="GitHub">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/alan-signetti-demand/"
+            target="_blank"
+            aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.13 2.06 2.06 0 01-.01 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+            </svg>
+          </a>
         </div>
-      </section>
-      <!-- End Certificates Section -->
-    </main>
-    <!-- End #main -->
+        <p>
+          © Alan Signetti Demand · Frontend Developer
+          <span class="footer-sep">·</span>
+          <a href="classic.html" class="footer-link">Classic version</a>
+        </p>
+      </div>
+    </footer>
 
-    <!-- ======= Footer ======= -->
-    <!-- <footer id="footer">
+    <script>
+      // Active nav highlight on scroll
+      const navLinks = document.querySelectorAll(".nav a");
+      const sections = document.querySelectorAll("section[id]");
 
-  </footer> -->
-    <!-- End  Footer -->
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY + 120;
+        sections.forEach((section) => {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          const id = section.getAttribute("id");
+          if (scrollY >= top && scrollY < top + height) {
+            navLinks.forEach((l) => l.classList.remove("active"));
+            const activeLink = document.querySelector(`.nav a[href="#${id}"]`);
+            if (activeLink) activeLink.classList.add("active");
+          }
+        });
+      });
 
-    <a
-      href="#"
-      class="back-to-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/purecounter/purecounter.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/typed.js/typed.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+      // Copy to clipboard
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          const text = btn.dataset.copy;
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+          }
+          btn.classList.add("copied");
+          setTimeout(() => btn.classList.remove("copied"), 1500);
+        });
+      });
+    </script>
   </body>
 </html>

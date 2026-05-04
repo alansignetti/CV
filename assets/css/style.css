@@ -560,3 +560,73 @@ section {
   line-height: 24px;
   font-size: 14px;
 }
+
+/* Modern design CTA button (hero) */
+.modern-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.5),
+    rgba(0, 224, 198, 0.4),
+    rgba(255, 94, 138, 0.4)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.modern-cta:hover {
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(124, 92, 255, 0.35);
+}
+
+.modern-cta:hover::before {
+  opacity: 1;
+}
+
+.modern-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.modern-cta:hover svg {
+  transform: translateX(4px);
+}
+
+.modern-cta-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00e0c6;
+  box-shadow: 0 0 12px #00e0c6;
+  animation: modern-cta-pulse 2s ease-in-out infinite;
+}
+
+@keyframes modern-cta-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
