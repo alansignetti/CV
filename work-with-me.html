@@ -620,7 +620,7 @@
           </div>
 
           <div class="tl-item now">
-            <div class="tl-date">May 2026 · You are here</div>
+            <div class="tl-date" id="tl-now-date">May 2026 · You are here</div>
             <div class="tl-title">Exploring the next pathway</div>
             <div class="tl-body">
               Current sponsor decided not to renew, citing broader business
@@ -883,6 +883,15 @@
     </footer>
 
     <script>
+      // Set the "You are here" date dynamically so the timeline never goes stale.
+      (function () {
+        const el = document.getElementById("tl-now-date");
+        if (!el) return;
+        const now = new Date();
+        const monthName = now.toLocaleString("en-US", { month: "long" });
+        el.textContent = `${monthName} ${now.getFullYear()} · You are here`;
+      })();
+
       // Reveal timeline items as they scroll into view
       const items = document.querySelectorAll(".tl-item");
       const obs = new IntersectionObserver(
