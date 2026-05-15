@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Working with me — Alan Signetti</title>
+    <meta
+      content="Three practical pathways to hire a Frontend Developer based in Australia"
+      name="description" />
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      :root {
+        --bg: #0a0a0f;
+        --bg-soft: #11111a;
+        --surface: rgba(255, 255, 255, 0.04);
+        --surface-strong: rgba(255, 255, 255, 0.07);
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #f2f2f5;
+        --text-dim: #9a9aa8;
+        --accent: #7c5cff;
+        --accent-2: #00e0c6;
+        --accent-3: #ff5e8a;
+        --good: #4ade80;
+        --warn: #fbbf24;
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(
+            circle at 10% 0%,
+            rgba(124, 92, 255, 0.18),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(0, 224, 198, 0.12),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 94, 138, 0.1),
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ---------- Nav ---------- */
+      .nav {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        padding: 10px 14px;
+        background: rgba(17, 17, 26, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        display: flex;
+        gap: 4px;
+      }
+      .nav a {
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-dim);
+        transition: all 0.25s ease;
+      }
+      .nav a:hover,
+      .nav a.active {
+        background: var(--surface-strong);
+        color: var(--text);
+      }
+
+      /* ---------- Container ---------- */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      section {
+        padding: 80px 0;
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        padding-top: 140px;
+      }
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent-2);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(40px, 7vw, 76px);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        margin-bottom: 20px;
+      }
+      .hero h1 .gradient {
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent-3) 50%,
+          var(--accent-2) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero p.tagline {
+        font-size: 19px;
+        color: var(--text-dim);
+        max-width: 640px;
+      }
+
+      /* ---------- Section heading ---------- */
+      h2.section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+      .section-sub {
+        color: var(--text-dim);
+        font-size: 17px;
+        max-width: 640px;
+        margin-bottom: 48px;
+      }
+
+      /* ---------- Timeline ---------- */
+      .timeline {
+        position: relative;
+        padding-left: 32px;
+        max-width: 800px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent) 0%,
+          var(--accent-2) 60%,
+          rgba(0, 224, 198, 0.2) 100%
+        );
+      }
+      .tl-item {
+        position: relative;
+        padding: 0 0 32px 24px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .tl-item.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .tl-item:last-child {
+        padding-bottom: 0;
+      }
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -30px;
+        top: 4px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 2px solid var(--accent-2);
+        box-shadow: 0 0 0 4px rgba(0, 224, 198, 0.15);
+      }
+      .tl-item.now::before {
+        background: var(--accent-2);
+        animation: tlpulse 2s ease-in-out infinite;
+      }
+      @keyframes tlpulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(0, 224, 198, 0.15);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(0, 224, 198, 0.25);
+        }
+      }
+      .tl-date {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--accent-2);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 4px;
+      }
+      .tl-item.now .tl-date {
+        color: var(--accent-3);
+      }
+      .tl-title {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .tl-body {
+        font-size: 14px;
+        color: var(--text-dim);
+        line-height: 1.6;
+      }
+
+      /* ---------- Snapshot ---------- */
+      .snapshot {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        margin: 16px 0 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 28px;
+      }
+      .snap-item .snap-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-dim);
+        margin-bottom: 6px;
+      }
+      .snap-item .snap-value {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .snap-item .snap-value .accent {
+        color: var(--accent-2);
+      }
+
+      /* ---------- Path cards ---------- */
+      .paths-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .path-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, border-color 0.3s ease,
+          box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .path-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--card-accent, var(--accent));
+        opacity: 0.8;
+      }
+      .path-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(124, 92, 255, 0.5);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+      }
+      .path-card.expanded {
+        transform: none;
+      }
+      .path-card .pc-num {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-dim);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .path-card .pc-icon {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+      .path-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-bottom: 6px;
+      }
+      .path-card .pc-tag {
+        font-size: 12px;
+        color: var(--card-accent, var(--accent));
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+      .path-card .pc-best {
+        font-size: 13px;
+        color: var(--text-dim);
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .path-card .pc-best strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .path-card .pc-bullets {
+        list-style: none;
+        margin-bottom: 16px;
+      }
+      .path-card .pc-bullets li {
+        padding: 6px 0 6px 22px;
+        position: relative;
+        font-size: 14px;
+        color: var(--text);
+      }
+      .path-card .pc-bullets li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--card-accent, var(--accent));
+        font-weight: 700;
+      }
+      .path-card .pc-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        font-size: 13px;
+      }
+      .path-card .pc-meta .label {
+        color: var(--text-dim);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 2px;
+      }
+      .path-card .pc-meta .value {
+        font-weight: 600;
+        color: var(--good);
+      }
+
+      .path-card.path-1 {
+        --card-accent: var(--accent-2);
+      }
+      .path-card.path-2 {
+        --card-accent: var(--accent);
+      }
+      .path-card.path-3 {
+        --card-accent: var(--accent-3);
+      }
+
+      /* ---------- FAQ ---------- */
+      .faq {
+        display: grid;
+        gap: 12px;
+      }
+      .faq-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 22px;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+      .faq-item:hover {
+        background: var(--surface-strong);
+        border-color: rgba(124, 92, 255, 0.3);
+      }
+      .faq-q {
+        font-weight: 600;
+        font-size: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .faq-q::after {
+        content: "+";
+        color: var(--accent-2);
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1;
+        transition: transform 0.25s ease;
+      }
+      .faq-item.open .faq-q::after {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, margin-top 0.25s ease;
+        font-size: 14px;
+        color: var(--text-dim);
+        line-height: 1.65;
+      }
+      .faq-item.open .faq-a {
+        max-height: 400px;
+        margin-top: 10px;
+      }
+
+      /* ---------- CTA ---------- */
+      .cta {
+        text-align: center;
+        padding: 80px 24px;
+        background: linear-gradient(
+          135deg,
+          rgba(124, 92, 255, 0.1) 0%,
+          rgba(0, 224, 198, 0.08) 100%
+        );
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        margin: 60px 0 40px;
+      }
+      .cta h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(24px, 4vw, 36px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 12px;
+      }
+      .cta p {
+        color: var(--text-dim);
+        font-size: 16px;
+        margin-bottom: 28px;
+      }
+      .cta-buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: 1px solid var(--border);
+      }
+      .btn-primary {
+        background: var(--text);
+        color: var(--bg);
+        border-color: var(--text);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(255, 255, 255, 0.15);
+      }
+      .btn-ghost {
+        background: var(--surface);
+        color: var(--text);
+      }
+      .btn-ghost:hover {
+        background: var(--surface-strong);
+        transform: translateY(-2px);
+      }
+
+      /* ---------- Footer ---------- */
+      footer {
+        padding: 40px 0 60px;
+        text-align: center;
+        color: var(--text-dim);
+        font-size: 13px;
+        border-top: 1px solid var(--border);
+      }
+      footer a {
+        color: var(--text-dim);
+        transition: color 0.2s ease;
+      }
+      footer a:hover {
+        color: var(--text);
+      }
+
+      @media (max-width: 720px) {
+        .nav {
+          gap: 0;
+          padding: 6px 8px;
+        }
+        .nav a {
+          padding: 6px 10px;
+          font-size: 11px;
+        }
+        section {
+          padding: 60px 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#portfolio">Work</a>
+      <a href="work-with-me.html" class="active">Hire me</a>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Working with me</span>
+        <h1>Two ways to <span class="gradient">make this work</span></h1>
+        <p class="tagline">
+          I'm a Frontend / Full-Stack Developer with six years of experience,
+          currently based on Australia's Sunshine Coast. Here's an honest look
+          at my migration situation and the two practical paths we can take —
+          pick the one that fits your team best.
+        </p>
+        <p style="margin-top:20px;">
+          <a href="work-with-me-quiz.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid var(--border);border-radius:999px;font-size:13px;font-weight:500;color:var(--text);background:var(--surface);transition:all 0.25s ease;">
+            ⚡ Prefer a 30-second quiz? Try the interactive version →
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">The journey so far</h2>
+        <p class="section-sub">
+          Six years of development experience across Argentina and Australia.
+          Currently navigating the transition to my next visa pathway.
+        </p>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">Feb 2020</div>
+            <div class="tl-title">Started professional development career</div>
+            <div class="tl-body">
+              Began as a Junior Full-Stack Developer in Buenos Aires after
+              completing my University Programmer Analyst qualification. React,
+              Node.js, SQL — the usual mix.
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date">2020 – 2023</div>
+            <div class="tl-title">
+              Senior roles at Deloitte, Cartasur, eXpand IT
+            </div>
+            <div class="tl-body">
+              Three years building production systems across consulting,
+              fintech, and product companies. Deepened in Angular, TypeScript,
+              and team leadership.
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date">2023 – 2024</div>
+            <div class="tl-title">Moved to Australia</div>
+            <div class="tl-body">
+              Working Holiday visa, then regional work at a mining-services site
+              (88 days). Used the time to lock down English skills and prepare
+              for the long-term move.
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date">Sept 2024</div>
+            <div class="tl-title">482 employer-sponsored visa granted</div>
+            <div class="tl-body">
+              Joined a Sunshine Coast SaaS company as Frontend Developer. Two
+              years of full-time work in Australia under the same nomination —
+              exactly the runway needed for the 186 TRT permanent residency
+              pathway.
+            </div>
+          </div>
+
+          <div class="tl-item now">
+            <div class="tl-date">May 2026 · You are here</div>
+            <div class="tl-title">Exploring the next pathway</div>
+            <div class="tl-body">
+              Current sponsor decided not to renew, citing broader business
+              priorities. I'm actively pursuing my next move with multiple
+              options in motion — no panic, just picking the right fit.
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date">2026 – 2028</div>
+            <div class="tl-title">Permanent residency on the horizon</div>
+            <div class="tl-body">
+              Whichever path forward, the destination is the same: PR via 186
+              TRT (employer sponsor) or 491 → 191 (skilled regional). On track
+              either way.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Where I am right now</h2>
+        <div class="snapshot">
+          <div class="snap-item">
+            <div class="snap-label">Current visa</div>
+            <div class="snap-value">
+              482 <span class="accent">(full work rights)</span>
+            </div>
+          </div>
+          <div class="snap-item">
+            <div class="snap-label">Valid until</div>
+            <div class="snap-value">1 September 2026</div>
+          </div>
+          <div class="snap-item">
+            <div class="snap-label">Location</div>
+            <div class="snap-value">Sunshine Coast, QLD</div>
+          </div>
+          <div class="snap-item">
+            <div class="snap-label">Experience</div>
+            <div class="snap-value">6.5 years professional</div>
+          </div>
+          <div class="snap-item">
+            <div class="snap-label">Primary stack</div>
+            <div class="snap-value">React · TypeScript · Angular · Node</div>
+          </div>
+          <div class="snap-item">
+            <div class="snap-label">Earliest start</div>
+            <div class="snap-value">Immediate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Two paths forward</h2>
+        <p class="section-sub">
+          Both options are real, viable, and already in motion on my side.
+          Pick the one that matches your situation.
+        </p>
+
+        <div class="paths-grid">
+          <div class="path-card path-1">
+            <div class="pc-num">Option 1 · Easiest for everyone</div>
+            <div class="pc-icon">🇦🇺</div>
+            <h3>New 482 sponsorship</h3>
+            <div class="pc-tag">Direct path · ~4-8 weeks to start</div>
+            <div class="pc-best">
+              <strong>Best for:</strong> Australian companies that have
+              sponsored before, or are open to it. Tech, consulting, agency,
+              scale-up — anyone with a registered ABN.
+            </div>
+            <ul class="pc-bullets">
+              <li>
+                I cover all visa, migration agent, and government fees
+                personally
+              </li>
+              <li>
+                Nomination under same ANZSCO preserves my 2-year history for 186
+                TRT
+              </li>
+              <li>
+                You sponsor on paper; I handle the entire migration process with
+                my agent
+              </li>
+              <li>
+                Minimal HR / admin load on your side — just the standard
+                nomination forms
+              </li>
+            </ul>
+            <div class="pc-meta">
+              <div>
+                <div class="label">Your cost</div>
+                <div class="value">$0</div>
+              </div>
+              <div>
+                <div class="label">Admin load</div>
+                <div class="value">Light</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="path-card path-2">
+            <div class="pc-num">Option 2 · No sponsorship needed</div>
+            <div class="pc-icon">🎯</div>
+            <h3>Hire after my 491</h3>
+            <div class="pc-tag">Self-funded skilled regional visa</div>
+            <div class="pc-best">
+              <strong>Best for:</strong> Australian companies that don't
+              sponsor but want to bring on senior talent without paperwork.
+              Once my 491 lands you hire me like any local employee — fully
+              remote works perfectly with this visa.
+            </div>
+            <ul class="pc-bullets">
+              <li>
+                ACS Skills Assessment already underway (Software Engineer ANZSCO
+                261313)
+              </li>
+              <li>
+                EOI ready to submit mid-2026 with QLD &amp; WA nominations in
+                scope
+              </li>
+              <li>
+                Once granted, the 491 gives me 5-year work rights → I can work
+                <strong>fully remote</strong> for any Australian employer, in
+                any city
+              </li>
+              <li>
+                You hire me as a regular employee, no visa paperwork on your end
+              </li>
+            </ul>
+            <div class="pc-meta">
+              <div>
+                <div class="label">Your cost</div>
+                <div class="value">$0</div>
+              </div>
+              <div>
+                <div class="label">Admin load</div>
+                <div class="value">None</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Common questions</h2>
+        <p class="section-sub">
+          The questions I get most often from recruiters and hiring managers
+          when visa context comes up.
+        </p>
+        <div class="faq">
+          <div class="faq-item">
+            <div class="faq-q">
+              How much does sponsoring me actually cost the company?
+            </div>
+            <div class="faq-a">
+              I cover all government and migration agent fees personally —
+              typically AUD 4,000–6,000 total. The company's only obligation is
+              to act as the legal sponsor and complete the nomination paperwork
+              (about 1-2 hours of HR time).
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              How long does sponsorship take from offer to start date?
+            </div>
+            <div class="faq-a">
+              With priority processing and a clean application, typically 4–8
+              weeks from nomination lodgement to visa grant. I can usually start
+              work earlier on a bridging visa with full work rights once the
+              application is lodged.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              What if your 491 application doesn't get granted in time?
+            </div>
+            <div class="faq-a">
+              My current 482 is valid until 1 September 2026. The 491 is one of
+              several parallel paths I'm working in motion. If timing is tight,
+              the new 482 sponsorship route is the faster backup — both end up
+              in the same place (PR), just on different timelines.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              Do you need to relocate, or are you flexible?
+            </div>
+            <div class="faq-a">
+              Based on the Sunshine Coast and happy to stay regional. Open to
+              relocating within Australia for the right role, and able to
+              commute to Brisbane easily. For remote roles, my timezone works
+              well across AU / NZ / SEA and partial overlap with EU / US.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Have you been through a sponsorship before?</div>
+            <div class="faq-a">
+              Yes — my current 482 was sponsored in 2024 by an Australian SaaS
+              company. I know the process end-to-end from both sides, which
+              means the new sponsor doesn't have to learn the system from
+              scratch.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h3>Let's talk about which path fits</h3>
+          <p>
+            Even if you're not sure which option works for your team, I'm happy
+            to walk through the practicalities of each. No pressure, no sales
+            pitch.
+          </p>
+          <div class="cta-buttons">
+            <a href="mailto:alansignetti@gmail.com" class="btn btn-primary">
+              Email me
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/alan-signetti-demand"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost">
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/alansignetti"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        Alan Signetti · Frontend Developer · Sunshine Coast, Australia ·
+        <a href="index.html">← Back to portfolio</a>
+      </div>
+    </footer>
+
+    <script>
+      // Reveal timeline items as they scroll into view
+      const items = document.querySelectorAll(".tl-item");
+      const obs = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              obs.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.15 }
+      );
+      items.forEach((i) => obs.observe(i));
+
+      // FAQ accordion
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.addEventListener("click", () => item.classList.toggle("open"));
+      });
+
+
+      // Path cards: subtle interaction (click toggles expanded class — could be expanded later)
+      document.querySelectorAll(".path-card").forEach((card) => {
+        card.addEventListener("click", () => card.classList.toggle("expanded"));
+      });
+    </script>
+  </body>
+</html>

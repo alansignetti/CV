@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Find your fit — Alan Signetti</title>
+    <meta content="A 30-second quiz to find the simplest way to hire me" name="description" />
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      :root {
+        --bg: #0a0a0f;
+        --surface: rgba(255, 255, 255, 0.04);
+        --surface-strong: rgba(255, 255, 255, 0.07);
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #f2f2f5;
+        --text-dim: #9a9aa8;
+        --accent: #7c5cff;
+        --accent-2: #00e0c6;
+        --accent-3: #ff5e8a;
+        --good: #4ade80;
+        --radius: 18px;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at 10% 0%, rgba(124, 92, 255, 0.18), transparent 50%),
+          radial-gradient(circle at 90% 20%, rgba(0, 224, 198, 0.12), transparent 50%),
+          radial-gradient(circle at 50% 100%, rgba(255, 94, 138, 0.1), transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+      }
+      a { color: inherit; text-decoration: none; }
+
+      /* Nav */
+      .nav {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        padding: 10px 14px;
+        background: rgba(17, 17, 26, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        display: flex;
+        gap: 4px;
+      }
+      .nav a {
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-dim);
+        transition: all 0.25s ease;
+      }
+      .nav a:hover, .nav a.active {
+        background: var(--surface-strong);
+        color: var(--text);
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 140px 24px 60px;
+      }
+
+      .quiz-container {
+        max-width: 720px;
+        width: 100%;
+      }
+
+      /* Progress dots */
+      .progress {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 36px;
+      }
+      .progress-dot {
+        width: 38px;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--border);
+        transition: background 0.35s ease;
+      }
+      .progress-dot.done { background: var(--accent-2); }
+      .progress-dot.current { background: var(--accent); }
+
+      /* Eyebrow tag */
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent-2);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      /* Question / Answer */
+      .question-block {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: qfade 0.4s ease forwards;
+      }
+      @keyframes qfade {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .question-block.exit {
+        animation: qfadeOut 0.25s ease forwards;
+      }
+      @keyframes qfadeOut {
+        to { opacity: 0; transform: translateY(-15px); }
+      }
+      .question-block h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(26px, 4vw, 36px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 12px;
+      }
+      .question-block .sub {
+        color: var(--text-dim);
+        font-size: 16px;
+        margin-bottom: 32px;
+      }
+
+      .answers {
+        display: grid;
+        gap: 12px;
+      }
+      .answer {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font: inherit;
+        color: inherit;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .answer:hover {
+        background: var(--surface-strong);
+        border-color: rgba(124, 92, 255, 0.5);
+        transform: translateY(-2px);
+      }
+      .answer .ans-icon {
+        font-size: 22px;
+        line-height: 1;
+      }
+      .answer .ans-text { flex: 1; }
+      .answer .ans-arrow {
+        color: var(--text-dim);
+        font-size: 18px;
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .answer:hover .ans-arrow {
+        opacity: 1;
+        transform: translateX(4px);
+        color: var(--accent-2);
+      }
+
+      .restart {
+        margin-top: 36px;
+        text-align: center;
+      }
+      .restart button {
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--text-dim);
+        padding: 8px 18px;
+        font: inherit;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .restart button:hover {
+        color: var(--text);
+        border-color: var(--text-dim);
+      }
+
+      /* Result */
+      .result-block {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: qfade 0.5s ease forwards;
+      }
+      .result-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 36px;
+        position: relative;
+        overflow: hidden;
+      }
+      .result-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--card-accent, var(--accent));
+        opacity: 0.9;
+      }
+      .result-card.path-1 { --card-accent: var(--accent-2); }
+      .result-card.path-2 { --card-accent: var(--accent-3); }
+
+      .result-icon {
+        font-size: 42px;
+        margin-bottom: 8px;
+      }
+      .result-tag {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--card-accent, var(--accent));
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .result-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(26px, 4vw, 34px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+      }
+      .result-card .result-summary {
+        font-size: 16px;
+        color: var(--text-dim);
+        line-height: 1.65;
+        margin-bottom: 24px;
+      }
+      .result-bullets {
+        list-style: none;
+        margin-bottom: 28px;
+      }
+      .result-bullets li {
+        position: relative;
+        padding: 8px 0 8px 28px;
+        font-size: 15px;
+      }
+      .result-bullets li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        color: var(--good);
+        font-weight: 700;
+      }
+      .result-meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 14px;
+        padding: 18px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 24px;
+      }
+      .result-meta .meta-item .meta-label {
+        font-size: 11px;
+        color: var(--text-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 4px;
+      }
+      .result-meta .meta-item .meta-value {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--card-accent, var(--accent));
+      }
+
+      .result-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        font-family: inherit;
+      }
+      .btn-primary {
+        background: var(--text);
+        color: var(--bg);
+        border-color: var(--text);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(255, 255, 255, 0.15);
+      }
+      .btn-ghost {
+        background: var(--surface);
+        color: var(--text);
+      }
+      .btn-ghost:hover {
+        background: var(--surface-strong);
+        transform: translateY(-2px);
+      }
+
+      footer {
+        padding: 30px 0;
+        text-align: center;
+        color: var(--text-dim);
+        font-size: 13px;
+      }
+      footer a { color: var(--text-dim); }
+      footer a:hover { color: var(--text); }
+    </style>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#portfolio">Work</a>
+      <a href="work-with-me.html">Full version</a>
+      <a href="work-with-me-quiz.html" class="active">Quiz</a>
+    </nav>
+
+    <main>
+      <div class="quiz-container">
+        <div class="progress" id="progress">
+          <div class="progress-dot current"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
+        </div>
+
+        <div id="quiz-host">
+          <!-- Questions are rendered here -->
+        </div>
+
+        <div class="restart" id="restart" style="display: none;">
+          <button id="restart-btn">↻ Restart quiz</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Alan Signetti · <a href="work-with-me.html">See the full version</a> ·
+      <a href="index.html">Back to portfolio</a>
+    </footer>
+
+    <script>
+      // ---------- quiz data ----------
+      const QUESTIONS = [
+        {
+          eyebrow: "Question 1 of 3",
+          title: "Where is your team based?",
+          sub: "This helps me know which path fits your situation best.",
+          answers: [
+            { id: "au", icon: "🇦🇺", text: "Australia-based company" },
+            { id: "overseas", icon: "🌏", text: "Overseas / global / fully distributed" },
+          ],
+        },
+        {
+          eyebrow: "Question 2 of 3",
+          title: "Can your company sponsor a 482 work visa?",
+          sub: "Sponsoring just means signing as my legal sponsor — I handle and pay for the entire process.",
+          answers: [
+            { id: "yes", icon: "✅", text: "Yes, we sponsor visas (or are open to it)" },
+            { id: "maybe", icon: "🤔", text: "Not sure — would need to look into it" },
+            { id: "no", icon: "❌", text: "No, we don't sponsor visas" },
+          ],
+        },
+        {
+          eyebrow: "Question 3 of 3",
+          title: "When would you ideally want someone to start?",
+          sub: "No pressure either way — both paths can flex on timing.",
+          answers: [
+            { id: "asap", icon: "⚡", text: "Within the next 1-2 months" },
+            { id: "flex", icon: "📅", text: "Flexible — happy to wait 3-6 months" },
+            { id: "later", icon: "🗓", text: "Planning ahead — 6+ months is fine" },
+          ],
+        },
+      ];
+
+      // Two possible result paths
+      const RESULTS = {
+        sponsor: {
+          tag: "Best fit · Path 1",
+          icon: "🇦🇺",
+          title: "New 482 sponsorship",
+          klass: "path-1",
+          summary:
+            "This is the most direct path. Your company nominates me on a 482 visa, I cover all government and migration agent fees, and you get a senior developer onboard in 4-8 weeks. The 2-year history I've already built carries through to permanent residency via the 186 TRT pathway.",
+          bullets: [
+            "I cover 100% of visa, agent, and government fees (~AUD 4-6K)",
+            "You sponsor on paper; I handle the whole migration process with my agent",
+            "Onboarded in 4-8 weeks (often earlier on a bridging visa)",
+            "Permanent residency pathway protected — same ANZSCO keeps the clock running",
+          ],
+          meta: [
+            { label: "Your cost", value: "$0" },
+            { label: "Admin load", value: "Light" },
+            { label: "Time to start", value: "4-8 weeks" },
+          ],
+        },
+        wait491: {
+          tag: "Best fit · Path 2",
+          icon: "🎯",
+          title: "Hire after my 491",
+          klass: "path-2",
+          summary:
+            "If you can't or don't want to sponsor, the 491 path is perfect: I get the visa independently, then you hire me like any local employee — including fully remote arrangements, from anywhere in Australia. Zero visa paperwork on your end, ever.",
+          bullets: [
+            "Zero visa cost or admin on your side",
+            "Once granted, I can work fully remote for any Australian employer",
+            "ACS Skills Assessment underway, EOI ready mid-2026",
+            "5-year work rights → leads to PR via the 191 visa, no further sponsorship needed",
+          ],
+          meta: [
+            { label: "Your cost", value: "$0" },
+            { label: "Admin load", value: "None" },
+            { label: "Time to start", value: "~6 months" },
+          ],
+        },
+        overseasNote: {
+          tag: "Heads up",
+          icon: "🌏",
+          title: "Overseas? Let's talk",
+          klass: "path-2",
+          summary:
+            "Since I'm currently on an Australian work visa, working directly for an overseas company isn't the simplest fit right now. But there are still ways we could make this work — for instance, once my 491 lands, contracting from Australia for an overseas client is straightforward. Easiest is to send me a quick note about your situation and I'll tell you honestly whether it's a good match.",
+          bullets: [
+            "Direct overseas employment is more complex while I'm on the 482",
+            "Once the 491 lands, contracting from Australia is fully open",
+            "If timing matters, the new-sponsor route (in Australia) is faster",
+            "Quick email is the easiest way to figure out if there's a fit",
+          ],
+          meta: [
+            { label: "Your cost", value: "Depends" },
+            { label: "Admin load", value: "Low" },
+            { label: "Time to start", value: "Varies" },
+          ],
+        },
+      };
+
+      // ---------- decision logic ----------
+      function pickResult(answers) {
+        // answers = { q1: ..., q2: ..., q3: ... }
+        if (answers.q1 === "overseas") return RESULTS.overseasNote;
+        if (answers.q2 === "yes" || answers.q2 === "maybe") return RESULTS.sponsor;
+        return RESULTS.wait491;
+      }
+
+      // ---------- state ----------
+      const state = {
+        step: 0, // 0..2 = questions, 3 = result
+        answers: {},
+      };
+      const host = document.getElementById("quiz-host");
+      const progress = document.getElementById("progress");
+      const restartWrap = document.getElementById("restart");
+
+      function updateProgress() {
+        const dots = progress.querySelectorAll(".progress-dot");
+        dots.forEach((d, i) => {
+          d.classList.remove("current", "done");
+          if (i < state.step) d.classList.add("done");
+          else if (i === state.step && state.step < 3) d.classList.add("current");
+          else if (state.step === 3) d.classList.add("done");
+        });
+      }
+
+      function renderQuestion() {
+        const q = QUESTIONS[state.step];
+        host.innerHTML = `
+          <div class="question-block">
+            <span class="eyebrow">${q.eyebrow}</span>
+            <h2>${q.title}</h2>
+            <p class="sub">${q.sub}</p>
+            <div class="answers">
+              ${q.answers
+                .map(
+                  (a) => `
+                <button class="answer" data-id="${a.id}">
+                  <span class="ans-icon">${a.icon}</span>
+                  <span class="ans-text">${a.text}</span>
+                  <span class="ans-arrow">→</span>
+                </button>
+              `
+                )
+                .join("")}
+            </div>
+          </div>
+        `;
+        host.querySelectorAll(".answer").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const key = "q" + (state.step + 1);
+            state.answers[key] = btn.dataset.id;
+            advance();
+          });
+        });
+        restartWrap.style.display = state.step > 0 ? "" : "none";
+      }
+
+      function advance() {
+        const block = host.querySelector(".question-block, .result-block");
+        if (block) block.classList.add("exit");
+        setTimeout(() => {
+          state.step += 1;
+          updateProgress();
+          if (state.step < QUESTIONS.length) renderQuestion();
+          else renderResult();
+        }, 220);
+      }
+
+      function renderResult() {
+        const r = pickResult(state.answers);
+        host.innerHTML = `
+          <div class="result-block">
+            <span class="eyebrow">Your match</span>
+            <div class="result-card ${r.klass}">
+              <div class="result-icon">${r.icon}</div>
+              <div class="result-tag">${r.tag}</div>
+              <h3>${r.title}</h3>
+              <p class="result-summary">${r.summary}</p>
+              <ul class="result-bullets">
+                ${r.bullets.map((b) => `<li>${b}</li>`).join("")}
+              </ul>
+              <div class="result-meta">
+                ${r.meta
+                  .map(
+                    (m) => `
+                  <div class="meta-item">
+                    <div class="meta-label">${m.label}</div>
+                    <div class="meta-value">${m.value}</div>
+                  </div>
+                `
+                  )
+                  .join("")}
+              </div>
+              <div class="result-actions">
+                <a href="mailto:alansignetti@gmail.com" class="btn btn-primary">
+                  Email me
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/alan-signetti-demand" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn</a>
+                <a href="work-with-me.html" class="btn btn-ghost">Full details</a>
+              </div>
+            </div>
+          </div>
+        `;
+        restartWrap.style.display = "";
+      }
+
+      function restart() {
+        state.step = 0;
+        state.answers = {};
+        updateProgress();
+        renderQuestion();
+      }
+
+      document.getElementById("restart-btn").addEventListener("click", restart);
+
+      // initial render
+      renderQuestion();
+      updateProgress();
+    </script>
+  </body>
+</html>
